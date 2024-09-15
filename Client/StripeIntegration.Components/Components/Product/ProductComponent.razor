@@ -1,0 +1,110 @@
+<div class="product-container" style="@(CurrentSubscription is not null && CurrentSubscription.PriceId.Equals(Product.PriceId) ? "border: 1px solid #5DB276;" : "")">
+
+    @if (CurrentSubscription is not null && CurrentSubscription.PriceId.Equals(Product.PriceId))
+    {
+        <div class="background-block">
+            <div class="current-subscription-block">
+                Your subscription
+            </div>
+        </div>
+    }
+
+    <div class="data">
+        <div class="title">
+            <label>@Product.Name</label>
+        </div>
+        <div class="icon">
+            <img src="@($"_content/StripeIntegration.Components/img/subscr-types/{Product.ImgName}.svg")"/>
+        </div>
+        <div class="price">
+            <label>@Product.Price $/month</label>
+        </div>
+        <div class="application-count">
+            <label>Application count</label>
+            <label>0</label>
+        </div>
+        <div class="separator"></div>
+        <div class="description">
+            <label>
+                0 Applications (It means that you’ll get 0
+                license keys for using in different applications)
+            </label>
+        </div>
+    </div>
+
+
+    <div class="buy">
+
+        @if (!ButtonLoader)
+        {
+            if (CurrentSubscription is null)
+            {
+                <button @onclick="OnSubscribeClickedAsync">Buy</button>
+            }
+            else
+            {
+                if (CurrentSubscription.PriceId.Equals(Product.PriceId))
+                {
+                    if (CurrentSubscription.Status == Shared.Enums.SubscriptionStatus.IncompleteExpired)
+                    {
+                        <button @onclick="OnRenewClickedAsync">Renew</button>
+                    }
+                    else
+                    {
+                        <button @onclick="() => { _cancelSubscription = true; StateHasChanged(); }">Cancle</button>
+                    }
+                }
+                else
+                {
+                    <button @onclick="() => { _changeSubscription = true; StateHasChanged(); }">Chose</button>
+                }
+            }
+        }
+        else
+        {
+            <button>Loading...</button>
+        }
+    </div>
+</div>
+
+<BCHModal @bind-Show="_cancelSubscription"
+          CssStyles="max-width: 370px;"
+          Width="calc(100% - 40px)"
+          Height="209px"
+          ShowOverlay="true"
+          CloseOnOverlayClicked="true">
+
+    <div class="remove-container" @onclick:stopPropagation>
+        <div class="top">
+            <div class="text noselectable-text">Cancel subscription?</div>
+            <div class="close" @onclick="() => { _cancelSubscription = false; StateHasChanged(); }"></div>
+        </div>
+        <div class="middle noselectable-text">Are you sure you want to cancel your current subscription?</div>
+        <div class="bottom">
+            <div class="btn close noselectable-text" @onclick="() => { _cancelSubscription = false; StateHasChanged(); }">Close</div>
+            <div class="btn remove noselectable-text" @onclick="OnCancelAsync">Cancel</div>
+        </div>
+    </div>
+
+</BCHModal>
+
+<BCHModal @bind-Show="_changeSubscription"
+          CssStyles="max-width: 370px;"
+          Width="calc(100% - 40px)"
+          Height="209px"
+          ShowOverlay="true"
+          CloseOnOverlayClicked="true">
+
+    <div class="remove-container" @onclick:stopPropagation>
+        <div class="top">
+            <div class="text noselectable-text">Change subscription?</div>
+            <div class="close" @onclick="() => { _changeSubscription = false; StateHasChanged(); }"></div>
+        </div>
+        <div class="middle noselectable-text">Are you sure you want to change your current subscription?</div>
+        <div class="bottom">
+            <div class="btn close noselectable-text" @onclick="() => { _changeSubscription = false; StateHasChanged(); }">Close</div>
+            <div class="btn remove noselectable-text" @onclick="ChangeAsync">Change</div>
+        </div>
+    </div>
+
+</BCHModal>

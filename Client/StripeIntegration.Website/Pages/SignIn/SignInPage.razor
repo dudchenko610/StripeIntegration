@@ -1,0 +1,145 @@
+@using StripeIntegration.Website.Layout.Empty
+@attribute [Route(Constants.ClientRoutes.SignIn)]
+
+@layout EmptyLayout
+
+<div class="sign-in-page-container">
+
+    <div class="left-logo">
+        <img src="img/sign-in-logo.svg"/>
+    </div>
+
+    <div class="form-wrapper @(_serverException is null ? "error" : "")">
+
+        <div class="logo">
+            <img @onclick="() => { NavigationManager.NavigateTo(Constants.ClientRoutes.Dashboard); }" class="noselectable-text" src="_content/StripeIntegration.Components/img/svg/full-logo.svg"/>
+        </div>
+
+        <div class="header noselectable-text">Welcome to the system!</div>
+        <div class="description noselectable-text">Log in to your personal account using your login details. If you do not have a personal account, please register.</div>
+
+        <div class="image" >
+            <img src="img/sign-in-logo.svg"/>
+        </div>
+
+        <div class="field-wrapper">
+            <div class="delimiter"></div>
+
+            <div class="line email" style="@($"background: {GetEmailErrorBackground()};")">
+                <div class="icon-wrapper">
+                    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.9583 26.4793H9.04165C5.16665 26.4793 2.58331 24.5418 2.58331 20.021V10.9793C2.58331 6.4585 5.16665 4.521 9.04165 4.521H21.9583C25.8333 4.521 28.4166 6.4585 28.4166 10.9793V20.021C28.4166 24.5418 25.8333 26.4793 21.9583 26.4793Z" stroke="#858585" stroke-width="1.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21.9584 11.625L17.9154 14.8542C16.585 15.9133 14.4021 15.9133 13.0717 14.8542L9.04169 11.625" stroke="#858585" stroke-width="1.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+                <div class="input-wrapper">
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        autocomplete="username"
+                        @onkeydown="OnKeyDown"
+                        @bind-value="_signInRequestModel.Email"/>
+                </div>
+            </div>
+
+            <div class="line password" style="@($"background: {GetErrorBackground()};")">
+                <div class="icon-wrapper">
+                    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.75 12.9168V10.3335C7.75 6.05808 9.04167 2.5835 15.5 2.5835C21.9583 2.5835 23.25 6.05808 23.25 10.3335V12.9168" stroke="#858585" stroke-width="1.9375" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21.9583 28.4165H9.04165C3.87498 28.4165 2.58331 27.1248 2.58331 21.9582V19.3748C2.58331 14.2082 3.87498 12.9165 9.04165 12.9165H21.9583C27.125 12.9165 28.4166 14.2082 28.4166 19.3748V21.9582C28.4166 27.1248 27.125 28.4165 21.9583 28.4165Z" stroke="#858585" stroke-width="1.9375" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20.6621 20.6668H20.6737" stroke="#858585" stroke-width="2.58333" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15.4941 20.6668H15.5057" stroke="#858585" stroke-width="2.58333" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.3262 20.6668H10.3378" stroke="#858585" stroke-width="2.58333" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+                <div class="input-wrapper noselectable-text">
+                    <input
+                        type="@(_showPassword ? "text" : "password")"
+                        placeholder="Enter your password"
+                        autocomplete="off"
+                        @onkeydown="OnKeyDown"
+                        @bind-value="_signInRequestModel.Password"/>
+
+                    <div class="eye">
+                        <div @onclick="() => { _showPassword = !_showPassword; StateHasChanged(); }">
+                            @if (_showPassword)
+                            {
+                                <svg width="24" height="19" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.9643 11.2695C18.7805 14.2016 15.5531 15.968 12.0255 16.0976C10.31 16.1606 8.63683 15.8323 7.09535 15.1606L20.8135 7.16349C21.7538 8.24595 21.8227 10.1209 20.9643 11.2695Z" fill="#868686"/>
+                                    <path d="M4.77564 13.8153C4.04841 13.276 3.37101 12.648 2.75658 11.9384C1.81621 10.8559 1.74733 8.98092 2.60574 7.83238C4.78957 4.90023 8.0169 3.13389 11.5445 3.0043C14.0556 2.91205 16.4758 3.6581 18.5253 5.0927M12.0255 16.0976C15.5531 15.968 18.7805 14.2016 20.9643 11.2695C21.8227 10.1209 21.7538 8.24595 20.8135 7.16349L7.09535 15.1606C8.63683 15.8323 10.31 16.1606 12.0255 16.0976Z" stroke="#868686" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2.88984 7.44149C5.17984 4.59149 8.46984 2.94482 11.9998 2.94482C14.5126 2.94482 16.9038 3.77922 18.8993 5.28809L4.83864 13.5C4.1317 12.9344 3.47781 12.282 2.88984 11.5502C1.98984 10.434 1.98984 8.55774 2.88984 7.44149Z" fill="#868686"/>
+                                    <path d="M15.5799 9.50018C15.5799 11.0677 13.9799 12.3343 11.9999 12.3343C10.0199 12.3343 8.41992 11.0677 8.41992 9.50018C8.41992 7.93268 10.0199 6.66602 11.9999 6.66602C13.9799 6.66602 15.5799 7.93268 15.5799 9.50018Z" fill="#868686" stroke="#FDFDFD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M22 4L14.9035 8.08691L3 15" stroke="#868686" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            }
+                            else
+                            {
+                                <svg width="24" height="19" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.9998 16.0469C15.5298 16.0469 18.8198 14.4002 21.1098 11.5502C22.0098 10.434 22.0098 8.55774 21.1098 7.44149C18.8198 4.59149 15.5298 2.94482 11.9998 2.94482C8.46984 2.94482 5.17984 4.59149 2.88984 7.44149C1.98984 8.55774 1.98984 10.434 2.88984 11.5502C5.17984 14.4002 8.46984 16.0469 11.9998 16.0469Z" fill="#868686" stroke="#868686" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15.58 9.50018C15.58 11.0677 13.98 12.3343 12 12.3343C10.02 12.3343 8.42 11.0677 8.42 9.50018C8.42 7.93268 10.02 6.66602 12 6.66602C13.98 6.66602 15.58 7.93268 15.58 9.50018Z" stroke="#FDFDFD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="validation-error-message noselectable-text">
+            @(_serverException is not null ? (_serverException.ErrorMessages.Count > 0 ? _serverException.ErrorMessages[0] : "Unknown Error")  : "")
+        </div>
+        
+        <div class="forgot-password noselectable-text">
+            <div @onclick="() => NavigationManager.NavigateTo(Constants.ClientRoutes.ForgotPassword)" class="text">Forgot your password?</div>
+        </div>
+
+        <div @onclick="OnSignInAsync" class="sign-in">
+            <div class="text noselectable-text">
+                @if (_signInLoading)
+                {
+                    <label>Loading...</label>
+                }
+                else
+                {
+                    <label>Sign in</label>
+                }
+            </div>
+        </div>
+
+        <div class="social-wrapper">
+            <div @onclick='() => OnSocialClickedAsync("Google")' class="social google">
+                <div class="icon">
+                    <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.6706 8.86727H17.9993V8.83268H10.4993V12.166H15.2089C14.5219 14.1064 12.6756 15.4993 10.4993 15.4993C7.7381 15.4993 5.49935 13.2606 5.49935 10.4993C5.49935 7.7381 7.7381 5.49935 10.4993 5.49935C11.7739 5.49935 12.9335 5.98018 13.8164 6.7656L16.1735 4.40852C14.6852 3.02143 12.6943 2.16602 10.4993 2.16602C5.89727 2.16602 2.16602 5.89727 2.16602 10.4993C2.16602 15.1014 5.89727 18.8327 10.4993 18.8327C15.1014 18.8327 18.8327 15.1014 18.8327 10.4993C18.8327 9.9406 18.7752 9.39518 18.6706 8.86727Z" fill="#FFC107"/>
+                        <path d="M3.12762 6.6206L5.86554 8.62852C6.60637 6.79435 8.40054 5.49935 10.5001 5.49935C11.7747 5.49935 12.9343 5.98018 13.8172 6.7656L16.1743 4.40852C14.686 3.02143 12.6951 2.16602 10.5001 2.16602C7.29929 2.16602 4.52346 3.9731 3.12762 6.6206Z" fill="#FF3D00"/>
+                        <path d="M10.5008 18.8336C12.6533 18.8336 14.6091 18.0099 16.0879 16.6703L13.5087 14.4878C12.6439 15.1454 11.5872 15.5011 10.5008 15.5003C8.33328 15.5003 6.49286 14.1182 5.79953 12.1895L3.08203 14.2832C4.4612 16.982 7.26203 18.8336 10.5008 18.8336Z" fill="#4CAF50"/>
+                        <path d="M18.6713 8.86857H18V8.83398H10.5V12.1673H15.2096C14.8809 13.0908 14.2889 13.8978 13.5067 14.4886L13.5079 14.4877L16.0871 16.6702C15.9046 16.8361 18.8333 14.6673 18.8333 10.5007C18.8333 9.9419 18.7758 9.39648 18.6713 8.86857Z" fill="#1976D2"/>
+                    </svg>
+                </div>
+                <div class="text noselectable-text">@(_signInSocialLoading == "GitHub" ? "Loading..." : "Sign in with Google")</div>
+            </div>
+            
+            <div @onclick='() => OnSocialClickedAsync("GitHub")' class="social github">
+                <div class="icon"></div>
+                <div class="text noselectable-text">@(_signInSocialLoading == "GitHub" ? "Loading..." : "Sign in with GitHub")</div>
+            </div>
+        </div>
+
+        <div class="sign-up-wrapper">
+            <div class="text noselectable-text">Don't have an account yet?</div>
+            <div @onclick='() => { NavigationManager.NavigateTo(Constants.ClientRoutes.SignUp); }' 
+                 class="button noselectable-text">Sign up</div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .empty-layout-container {
+        display: block !important;
+        padding-bottom: 60px;
+    }
+</style>

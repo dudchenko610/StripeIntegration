@@ -1,0 +1,23 @@
+@inherits LayoutComponentBase
+
+<div class="main-layout-container">
+    <div class="content-left">
+        <LeftMenuComponent @ref="@_leftMenuComponent"/>
+    </div>
+    <div class="main-content">
+        <div class="header-container">
+            <HeaderComponent OnBurgerClicked="() => { _leftMenuComponent?.SwapShow(); }"/>
+        </div>
+        <div class="page-container">
+            <div class="body-container">
+                @Body
+            </div>
+            <div>
+                <FooterComponent/>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<ErrorModalComponent/>

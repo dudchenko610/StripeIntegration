@@ -1,0 +1,248 @@
+@using Microsoft.AspNetCore.Authorization
+@attribute [Route(Constants.ClientRoutes.Profile)]
+@attribute [Authorize]
+
+<div class="profile-container @(!_dataIsLoaded ? "loading" : "")">
+
+    <div class="title">
+        <label class="noselectable-text">My profile</label>
+    </div>
+
+    <div class="description">
+        <label class="noselectable-text">What changes await us today?</label>
+    </div>
+
+    <div class="main-content @(!_dataIsLoaded ? "loading" : "")">
+
+        <div class="two-box">
+
+            <div class="contact-information @(_profileUpdating ? "loading" : "")">
+                @if (_dataIsLoaded)
+                {
+                    <div class="cont-header">
+                        <div class="contact-title">
+                            <label class="noselectable-text">Contact Information</label>
+                        </div>
+                        <div class="edit"
+                             tabindex="1"
+                             @ref="_showUserActionsElRef"
+                             @onclick="OnUserActionsClickedAsync"
+                             @onfocusout="OnUserActionsFocusOut">
+
+                            @if (!_disabledFields)
+                            {
+                                <div class="contact-popup-actions @(_showUserAction ? "show" : "close")">
+                                    <div class="edit-but"
+                                         @onclick='() => { _disabledFields = !_disabledFields; }'>
+                                        <div class="icon"></div>
+                                        <div class="noselectable-text">Edit profile</div>
+                                    </div>
+                                    <div class="delete-but" @onclick="() => { }">
+                                        <div class="icon"></div>
+                                        <div class="noselectable-text">Delete profile</div>
+                                    </div>
+                                </div>
+                                <div class="edit-icon">
+                                    <img src="/img/edit-button.svg"/>
+                                </div>
+                            }
+                            else
+                            {
+                                <button
+                                    @onclick="OnSaveClickedAsync"
+                                    @onclick:stopPropagation
+                                    class="save-button noselectable-text">
+                                    save
+                                </button>
+                            }
+                        </div>
+                    </div>
+                    <div class="edit-fields">
+                        <div class="name">
+                            <div>
+                                <label class="noselectable-text">Name</label>
+                            </div>
+                            <div>
+                                <input
+                                    @bind-value="@_userModel.Nickname"
+                                    @bind-value:event="oninput"
+                                    disabled="@(!_disabledFields)"/>
+                            </div>
+                        </div>
+
+                        <div class="email">
+                            <div>
+                                <label class="noselectable-text">E-mail address</label>
+                            </div>
+                            <div>
+                                <input value="@_userModel.Email" disabled/>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="subscription-info @(_subscriptionChanging ? "loading" : "")">
+                @if (_dataIsLoaded)
+                {
+                    <div class="subsc-header">
+                        <div class="subsc-title">
+                            <label class="noselectable-text">Your subscription</label>
+                        </div>
+
+                        @if (_subscriptionModel is null)
+                        {
+                            <div class="no-selected">
+                                <label class="noselectable-text">No selected</label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="actions">
+                                <div class="when-end">
+                                    <label class="noselectable-text">Ends in @((int)(_subscriptionModel.CurrentPeriodEnd - DateTime.Now).TotalDays) days</label>
+                                </div>
+
+                                <div class="status active">
+                                    <label class="noselectable-text">@(_subscriptionModel.IsTrial ? "Trial" : "Active")</label>
+                                </div>
+
+                                <div class="menu-button"
+                                     tabindex="1"
+                                     @ref="_showSubscriptionElRef"
+                                     @onclick="OnSubscriptionDetailsClickedAsync"
+                                     @onfocusout="OnSubscriptionDetailsFocusOut">
+                                    <div class="par-div-icon">
+                                        <div class="ch-div-icon"></div>
+                                    </div>
+
+                                    <div class="subsc-popup-detail @(_subscriptionModel.IsTrial ? "trial " : "") @(_showSubscriptionAction ? "show" : "close")">
+                                        <div class="change-but"
+                                             @onclick='() => { NavigationManager.NavigateTo(Constants.ClientRoutes.Subscriptions); }'>
+                                            <div class="icon"></div>
+                                            <div class="noselectable-text">Change plan</div>
+                                        </div>
+
+                                        @if (!_subscriptionModel.IsTrial)
+                                        {
+                                            <div class="cancel-but" @onclick="() => { _cancelSubscriptionModalOpened = true; StateHasChanged(); }">
+                                                <div class="icon"></div>
+                                                <div class="noselectable-text">Cancel plan</div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="subsc-content">
+                        <div class="no-subsc-text">
+                            @if (_subscriptionModel is null)
+                            {
+                                <label class="noselectable-text">Sorry, you are not subscribed to any plan. To select a tariff plan, click on the button below to the next page.</label>
+                            }
+                            else
+                            {
+                                <label class="noselectable-text">@((MarkupString)string.Format("Your subscription was activated &lt;b&gt;on {{0}}&lt;/b&gt;. Subscription expires&lt;b&gt;on {{1}}&lt;/b&gt;. We will notify you before the expiration date.", _subscriptionModel.CurrentPeriodStart, _subscriptionModel.CurrentPeriodEnd))</label>
+                            }
+                        </div>
+                        @if (_subscriptionModel is null)
+                        {
+                            <div class="to-subscription-button">
+                                <button class="noselectable-text" @onclick="() => { NavigationManager.NavigateTo(Constants.ClientRoutes.Subscriptions); }">To subscriptions</button>
+                            </div>
+                        }
+                        else
+                        {
+                            <hr/>
+
+                            <div class="subsc-detail">
+                                <div class="left-side">
+                                    <div class="detail-item">
+                                        <div>
+                                            <b class="noselectable-text">Assembly name</b>
+                                        </div>
+                                        <div class="noselectable-text">@_subscriptionModel.ProductName</div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <div>
+                                            <b class="noselectable-text">Price</b>
+                                        </div>
+                                        <div class="noselectable-text"> @_subscriptionModel.Price @_subscriptionModel.Currency</div>
+                                    </div>
+
+                                </div>
+                                <div class="right-side">
+                                    <div class="detail-item">
+                                        <div>
+                                            <b class="noselectable-text">App count</b>
+                                        </div>
+                                        <div class="noselectable-text"> 0</div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <div>
+                                            <b class="noselectable-text">Created</b>
+                                        </div>
+                                        <div class="noselectable-text" style="min-width: 110px;">@_subscriptionModel.Created.ToString("dd.MM.yyyy")</div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                }
+            </div>
+
+        </div>
+    
+        @if (_subscriptionModel is not null || !_dataIsLoaded)
+        {
+            <div class="applications-overlay @(!_applicationsAreLoaded ? "loading" : "")">
+                <div id="@_applicationsId"
+                     class="applications">
+
+                    @if (_dataIsLoaded && _applicationsAreLoaded)
+                    {
+                        <table>
+                            <thead>
+                            <tr>
+                                <th class="noselectable-text">Assembly name</th>
+                                <th class="noselectable-text">License key</th>
+                                <th colspan="2">
+                                    <div class="add-application">
+                                        <button class="noselectable-text">
+                                            <div></div>
+                                            Add application
+                                        </button>
+                                    </div>
+                                </th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <div class="empty">Test subscription data</div>
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="popup delete @(_cancelSubscriptionModalOpened ? "show" : "")"
+     @onclick="() => { _cancelSubscriptionModalOpened = false; }">
+
+    <div class="remove-container" @onclick:stopPropagation>
+        <div class="top">
+            <div class="text noselectable-text">Remove</div>
+            <div class="close" @onclick="() => { _cancelSubscriptionModalOpened = false; }"></div>
+        </div>
+        <div class="middle noselectable-text">Are you sure you want to cancel current subscription?</div>
+        <div class="bottom">
+            <div class="btn close noselectable-text" @onclick="() => { _cancelSubscriptionModalOpened = false; }">Close</div>
+            <div class="btn remove noselectable-text" @onclick="OnCancelClickedAsync">Remove</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+@using StripeIntegration.Components.Components.ErrorModal.Error
+
+<BCHModal @bind-Show="_showError"
+          ShowOverlay="true"
+          CloseOnOverlayClicked="true"
+          CssStyles="max-width: 370px;"
+          Width="calc(100% - 40px)"
+          Height="auto">
+    <ErrorComponent Exception="_exception" OnClose="() => { _showError = false; StateHasChanged(); }"/>
+</BCHModal>

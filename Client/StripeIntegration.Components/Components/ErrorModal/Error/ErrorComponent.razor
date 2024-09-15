@@ -1,0 +1,18 @@
+<div class="remove-container">
+    <div class="top">
+        <div class="text noselectable-text">Error</div>
+        <div class="close" @onclick="async () => { await OnClose.InvokeAsync(); }"></div>
+    </div>
+    <div class="middle scroll noselectable-text">
+        <div class="scroller">
+            @foreach (var error in Exception.ErrorMessages)
+            {
+                @error
+                <br/>
+            }
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="btn close noselectable-text" @onclick="async () => { await OnClose.InvokeAsync(); }">Close</div>
+    </div>
+</div>

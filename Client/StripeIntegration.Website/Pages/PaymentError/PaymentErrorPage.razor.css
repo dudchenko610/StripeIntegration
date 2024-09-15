@@ -1,0 +1,65 @@
+.error-paid-container {
+    background-color: unset;
+    border: unset;
+    width: 100%;
+}
+
+.error-paid-container .error-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.error-paid-container .error-wrapper .error-icon {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d02626;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.error-paid-container .error-wrapper .error-icon .icon {
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-paid-container .error-wrapper .error-info {
+    background: #ffffff;
+    padding: 24px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.error-paid-container .error-wrapper .error-info .error-title {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.3pc;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error-paid-container .error-wrapper .error-info .error-description {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.1pc;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.error-paid-container .error-wrapper .error-info .to-home-button {
+    text-align: center;
+    margin-top: 16px;
+}
+
+@media (max-width: 577px) {
+    .error-paid-container .error-wrapper {
+        width: 70%;
+    }
+}

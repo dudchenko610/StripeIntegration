@@ -1,0 +1,65 @@
+.successfully-paid-container {
+    background-color: unset;
+    border: unset;
+    width: 100%;
+}
+
+.successfully-paid-container .success-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.successfully-paid-container .success-wrapper .success-icon {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #5DB276;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.successfully-paid-container .success-wrapper .success-icon .icon {
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.successfully-paid-container .success-wrapper .success-info {
+    background: #ffffff;
+    padding: 24px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.successfully-paid-container .success-wrapper .success-info .success-title {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.3pc;
+    font-weight: bold;
+    text-align: center;
+}
+
+.successfully-paid-container .success-wrapper .success-info .success-description {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.1pc;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.successfully-paid-container .success-wrapper .success-info .to-home-button {
+    text-align: center;
+    margin-top: 16px;
+}
+
+@media (max-width: 577px) {
+    .successfully-paid-container .success-wrapper {
+        width: 70%;
+    }
+}

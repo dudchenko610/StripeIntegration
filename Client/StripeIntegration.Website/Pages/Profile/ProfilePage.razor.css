@@ -1,0 +1,970 @@
+.profile-container {
+    width: 100%;
+    /*height: 100%;*/
+    padding: 40px 32px 40px 32px;
+}
+
+.profile-container .title {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    color: #292D32;
+    margin-bottom: 8px;
+}
+
+.profile-container .description {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #292D32;
+}
+
+.profile-container .main-content {
+    margin-top: 32px;
+    height: calc(100% - 56px - 347px);
+}
+
+.profile-container .main-content .two-box {
+    display: flex;
+    gap: 15px;
+}
+/*contact information*/
+
+.profile-container .main-content .two-box .contact-information {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border-radius: 20px;
+    padding: 32px 20px 32px 20px;
+}
+
+.profile-container .main-content:not(.loading) .two-box .contact-information:not(.loading) {
+    background: #FDFDFD;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header {
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+}
+
+.profile-container .main-content .two-box .contact-information .contact-title label {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #292D32;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit{
+    position: relative;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .save-button {
+    background: #5DB276;
+    border-radius: 6px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+    width: 70px;
+    height: 27px;
+    cursor: pointer;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .edit-icon {
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .edit-icon img{
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .edit-icon:hover {
+    border: 1px solid #5DB276;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .edit-icon:hover{
+
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    width: 143px;
+    height: 79px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(190, 190, 190, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions > div:hover {
+    background: #F1F7F3;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions.show {
+    display: block;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions.close {
+    display: none;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions .edit-but,
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions .delete-but {
+    height: 50%;
+    align-items: center;
+    gap: 5px;
+    padding: 0 15px 0 15px;
+    cursor: pointer;
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 23px;
+    display: flex;
+    cursor: pointer;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions .edit-but > .icon {
+    width: 16px;
+    height: 16px;
+    background: url(img/svg/profile/edit-profile-icon.svg) center no-repeat;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions .delete-but > .icon {
+    width: 16px;
+    height: 16px;
+    background: url(img/svg/profile/delete-profile-icon.svg) center no-repeat;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions .edit-but > div,
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions .delete-but > div,
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions .edit-but > div > svg,
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions .delete-but > div > svg {
+    cursor: pointer;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions .edit-but {
+    border-bottom: 1px solid #F7F1F1;
+}
+
+.profile-container .main-content .two-box .contact-information .cont-header .edit .contact-popup-actions .delete-but {
+    color: #E74646;
+}
+
+.profile-container .main-content .two-box .contact-information .edit-fields {
+    margin-top: 24px;
+}
+
+.profile-container .main-content .two-box .contact-information .edit-fields .name label,
+.profile-container .main-content .two-box .contact-information .edit-fields .email label {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #292D32;
+    margin-bottom: 8px;
+}
+
+.profile-container .main-content .two-box .contact-information .edit-fields .name input,
+.profile-container .main-content .two-box .contact-information .edit-fields .email input {
+    width: 100%;
+    height: 47px;
+    background: #FAFAFA;
+    border: 1px solid #E8E8E8;
+    border-radius: 8px;
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 32px;
+    color: #292D32;
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+
+.profile-container .main-content .two-box .contact-information .edit-fields .name input:focus,
+.profile-container .main-content .two-box .contact-information .edit-fields .name input:focus-within,
+.profile-container .main-content .two-box .contact-information .edit-fields .name input:focus-visible,
+.profile-container .main-content .two-box .contact-information .edit-fields .email input:focus,
+.profile-container .main-content .two-box .contact-information .edit-fields .email input:focus-within,
+.profile-container .main-content .two-box .contact-information .edit-fields .email input:focus-visible {
+    outline: none;
+}
+
+/*contact information*/
+
+.profile-container.loading .main-content .two-box .contact-information,
+.profile-container.loading .main-content .two-box .subscription-info {
+    min-height: 310px;
+}
+
+/*subscription info*/
+
+.profile-container .main-content .two-box .subscription-info {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border-radius: 20px;
+    padding: 32px 20px 32px 20px;
+}
+
+.profile-container .main-content:not(.loading) .two-box .subscription-info:not(.loading) {
+    background: #FDFDFD;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    /*height: 35px;*/
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .subsc-title label {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #292D32;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .no-selected {
+    background: #F6F6F6;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    width: 77px;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .when-end {
+    background: #F7F6F1;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    min-width: 83px;
+    height: 25px;
+    justify-content: center;
+    padding: 0 4px;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .when-end label {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    text-align: center;
+    color: #EA9532;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .active {
+    background: #F1F7F3;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    min-width: 83px;
+    height: 25px;
+    justify-content: center;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .active label {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    text-align: center;
+    color: #5DB276;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button {
+    background: #EBEBEB;
+    border-radius: 6px;
+    /*display: flex;
+    align-items: center;*/
+    min-width: 26px;
+    height: 25px;
+    /*justify-content: center;*/
+    position: relative;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .par-div-icon {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 1px solid #EBEBEB;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .par-div-icon > .ch-div-icon {
+    width: 13px;
+    height: 3px;
+    background: url(img/svg/profile/subscription-details-dots-icon.svg) center no-repeat;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .par-div-icon:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid #5DB276;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail.show {
+    display: block;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail.close {
+    display: none;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(190, 190, 190, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    width: 144px;
+    height: 79px;
+    position: absolute;
+    right: 0;
+    top: 30px;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail.trial {
+    height: 40px;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail > div:hover {
+    background: #F1F7F3;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail .change-but {
+    color: #292D32;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail .cancel-but {
+    border-top: 1px solid #E8E8E8;
+    color: #E74646;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail .change-but,
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail .cancel-but {
+    height: 50%;
+    align-items: center;
+    gap: 5px;
+    padding: 0 15px 0 15px;
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 23px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail.trial .change-but {
+    height: 100%;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail .change-but > .icon {
+    width: 18px;
+    height: 18px;
+    background: url(img/svg/profile/change-subscription-icon.svg) center no-repeat;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail .cancel-but > .icon {
+    width: 16px;
+    height: 16px;
+    background: url(img/svg/profile/cancel-subscription-icon.svg) center no-repeat;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail .change-but > div,
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button .subsc-popup-detail .cancel-but > div {
+    cursor: pointer;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .actions .menu-button div {
+    display: flex;
+    gap: 2px;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-header .no-selected label {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    text-align: center;
+    color: #292D32;
+    padding: 6px 10px;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-content {
+    margin-top: 24px;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-content .no-subsc-text label {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #292D32;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-content .to-subscription-button {
+    margin-top: 30px;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-content .to-subscription-button button {
+    background: #5DB276;
+    border-radius: 6px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 10px 24px;
+    border: none;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .left-side,
+.profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .right-side {
+    width: 50%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .right-side {
+    padding-left: 15px;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .right-side .detail-item div:nth-child(2) {
+    padding-left: 15px;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .right-side .detail-item.secret-key div:nth-child(2) label {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    text-decoration-line: underline;
+    color: #3271EA;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .left-side .detail-item,
+.profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .right-side .detail-item {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #292D32;
+}
+
+.profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .left-side .detail-item div,
+.profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .right-side .detail-item div {
+    width: 50%;
+}
+
+/*subscription info*/
+
+/*applications*/
+
+.profile-container .main-content .applications-overlay {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+}
+
+.profile-container .main-content .applications {
+    background: #FDFDFD;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    min-height: 140px;
+    margin-top: 32px;
+    padding: 32px 28px 24px 32px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.profile-container.loading .main-content .applications {
+    min-height: 140px;
+}
+
+.profile-container .main-content .applications .add-application {
+    text-align: end;
+    display: flex;
+    justify-content: end;
+    margin-left: 15px;
+}
+
+.profile-container .main-content .applications .add-application button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+
+    background: #5DB276;
+    border-radius: 6px;
+    width: 162px;
+    height: 40px;
+    border: none;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.profile-container .main-content .applications .add-application button > div {
+    width: 25px;
+    height: 25px;
+    margin-left: -7px;
+    background: url(img/svg/profile/plus-application-icon.svg) center no-repeat;
+}
+
+.profile-container .main-content .applications table {
+    width: 100%;
+    /*min-width: 670px;*/
+}
+.profile-container .main-content .applications table thead {
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.profile-container .main-content .applications table thead tr th{
+    padding-bottom: 16px;
+
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #292D32;
+}
+
+.profile-container .main-content .applications table tbody {
+    position: relative;
+}
+
+.profile-container .main-content .applications table tbody > .empty {
+    margin: 10px 0;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 32px;
+    color: #292D32;
+}
+
+.profile-container .main-content .applications table tbody tr td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+}
+
+.profile-container .main-content .applications table tbody tr td:nth-child(2) {
+    padding-left: 10px;
+}
+
+.profile-container .main-content .applications table tbody tr {
+    border-bottom: 1px solid #E8E8E8;
+}
+
+/*.profile-container .main-content .applications table tbody tr td.update-button {*/
+/*    text-align: end;*/
+/*}*/
+
+.profile-container .main-content .applications table tbody tr td.buttons {
+    text-align: end;
+    min-width: 290px;
+}
+
+.profile-container .main-content .applications table tbody tr > td > button {
+    background: #F7F1F1;
+    border-radius: 6px;
+    width: 130px;
+    height: 32px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #E74646;
+    border: none;
+}
+
+.profile-container .main-content .applications table tbody tr > td > button.update {
+    background: #F1F7F3;
+    color: #5DB276;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+@media (min-width: 150px) and (max-width: 768px) {
+    .profile-container .main-content .two-box {
+        flex-direction: column;
+    }
+
+    .profile-container .main-content .two-box .contact-information{
+        width: 100%;
+    }
+
+    .profile-container .main-content .two-box .subscription-info {
+        width: 100%;
+    }
+
+    .profile-container .main-content .two-box .subscription-info .subsc-header {
+        height: unset;
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    /*.profile-container .main-content .two-box .subscription-info .subsc-header .actions {*/
+    /*    justify-content: end;*/
+    /*}*/
+
+    .profile-container .main-content .two-box .subscription-info .subsc-header .actions > .menu-button {
+        margin-left: auto;
+    }
+
+    .profile-container .main-content .two-box .subscription-info .subsc-content {
+        margin-top: 10px;
+    }
+
+    .profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail {
+        width: 100%;
+    }
+
+    .profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .left-side,
+    .profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .right-side
+    {
+        width: 100%;
+    }
+
+    .profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .right-side {
+        padding-left: 0;
+    }
+
+    .profile-container .main-content .two-box .subscription-info .subsc-content .subsc-detail .right-side .detail-item div:nth-child(2){
+        padding-left: 0;
+    }
+}
+
+.popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(41, 45, 50, 0.2);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup.show {
+    display: flex;
+}
+
+.popup > .app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: calc(100% - 40px);
+    max-width: 418px;
+    height: 209px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 16px rgba(179, 179, 179, 0.25);
+    border-radius: 20px;
+}
+
+.popup > .app-container > .top {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1;
+}
+
+.popup > .app-container > .top > .icon {
+    width: 132px;
+    height: 132px;
+    background: url(img/svg/profile/add-application-icon.svg) center no-repeat;
+}
+
+.popup > .app-container > .top > .close {
+    width: 32px;
+    height: 32px;
+    background: url(img/svg/profile/close-popup-icon.svg) center no-repeat;
+    margin-right: 20px;
+    margin-top: 16px;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+.popup > .app-container > .top > .texts {
+    width: calc(100% - 200px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 12px;
+}
+
+.popup > .app-container > .top > .texts > .header {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 23px;
+    color: #292D32;
+    margin-bottom: 8px;
+}
+
+.popup > .app-container > .top > .texts > .text {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(19, 18, 18, 0.7);
+    margin-top: 8px;
+}
+
+.popup > .app-container > .bottom {
+    display: flex;
+    height: 42px;
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.popup > .app-container > .bottom > .button {
+    height: 100%;
+    width: 98px;
+}
+
+.popup > .app-container > .bottom > .input-wrapper {
+    height: 100%;
+    flex: 1 1;
+    display: flex;
+    align-items: center;
+    background: #FAFAFA;
+    border: 1px solid #E8E8E8;
+    border-right: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.popup > .app-container > .bottom > .input-wrapper > input {
+    width: 100%;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 32px;
+    color: rgba(19, 18, 18, 0.7);
+    background: #FAFAFA;
+    text-indent: 20px;
+}
+
+.popup > .app-container > .bottom > .input-wrapper > input::placeholder {
+    color: #858585;
+}
+
+.popup > .app-container > .bottom > .button {
+    background: #5DB276;
+    border-radius: 0 8px 8px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.popup.delete > .remove-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: calc(100% - 40px);
+    max-width: 369px;
+    min-height: 209px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 16px rgba(179, 179, 179, 0.25);
+    border-radius: 20px;
+}
+
+.popup.delete > .remove-container > .top {
+    width: 100%;
+    height: 62px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.popup.delete > .remove-container > .top > .text {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #292D32;
+}
+
+.popup.delete > .remove-container > .top > .close {
+    position: absolute;
+    top: calc(50% - 16px);
+    right: 10px;
+    cursor: pointer;
+}
+
+.popup.delete > .remove-container > .middle {
+    /*word-break: break-all;*/
+    padding: 5px 15px;
+
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: rgba(19, 18, 18, 0.7);
+}
+
+.popup.delete > .remove-container > .bottom {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    padding-top: 8px;
+    border-top: 1px solid #E8E8E8;
+    margin-bottom: 8px;
+}
+
+.popup.delete > .remove-container > .bottom > .btn {
+    width: 132px;
+    height: 43px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    cursor: pointer;
+}
+
+.popup.delete > .remove-container > .bottom > .btn.close {
+    background: #F1F7F3;
+    color: #5DB276;
+}
+
+.popup.delete > .remove-container > .bottom > .btn.remove {
+    background: #F7F1F1;
+    color: #E74646;
+}
+
+.profile-container .main-content > .applications-overlay.loading > .applications {
+    min-height: 140px;
+}
+
+.main-content .subscription-info.loading,
+.main-content .contact-information.loading,
+.main-content.loading .contact-information,
+.main-content.loading .subscription-info,
+.main-content.loading > .applications-overlay > .applications,
+.main-content > .applications-overlay.loading > .applications {
+    background: linear-gradient(90deg, #FDFDFD, #eeeeee, #FDFDFD, #eeeeee);
+    background-size: 400% 400%;
+    animation: moveGradient 4s ease infinite;
+}
+
+.main-content .subscription-info.loading > div,
+.main-content .contact-information.loading > div {
+    visibility: hidden;
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 0%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}

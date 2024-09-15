@@ -1,0 +1,216 @@
+.not-found-container {
+    width: 100%;
+    display: flex;
+}
+
+.not-found-container .helpfull-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 80px;
+    width: 50%;
+}
+
+.not-found-container .helpfull-links .title {
+    margin-bottom: 24px;
+}
+
+.not-found-container .helpfull-links .title label {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 55px;
+    line-height: 67px;
+    color: #292D32;
+}
+
+.not-found-container .helpfull-links .description {
+    margin-bottom: 40px;
+}
+
+.not-found-container .helpfull-links .description label {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #606060;
+}
+
+.not-found-container .helpfull-links .redirect-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.not-found-container .helpfull-links .redirect-buttons .back-button {
+    width: 120px;
+    height: 44px;
+    background: #5DB276;
+    border-radius: 6px;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.not-found-container .helpfull-links .redirect-buttons .main-button {
+    width: 180px;
+    height: 44px;
+    border: 1px solid #5DB276;
+    border-radius: 6px;
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #5DB276;
+    cursor: pointer;
+}
+
+.not-found-container .helpfull-links .component-items {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.not-found-container .helpfull-links .component-items .item .link-to-component {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #5DB276;
+    margin-bottom: 8px;
+}
+
+.not-found-container .helpfull-links .component-items .item .short-description {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #606060;
+}
+
+.not-found-container .not-found-image {
+    padding-right: 40px;
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found-container .not-found-image > img {
+    width: 100%;
+}
+    
+@media (min-width: 150px) and (max-width: 767.9px) {
+    .not-found-container {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .not-found-container .helpfull-links .title label {
+        font-size: 35px;
+        line-height: 50px;
+    }
+
+    .not-found-container .helpfull-links {
+        width: 100%;
+        padding: 60px 40px;
+    }
+
+    .not-found-container .helpfull-links .redirect-buttons {
+        display: none;
+    }
+
+    .not-found-container .not-found-image {
+        display: none;
+        width: 0;
+    }
+
+    .not-found-container .helpfull-links .description label {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .not-found-container .helpfull-links .component-items .item .link-to-component {
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    .not-found-container .helpfull-links .component-items .item .short-description {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .not-found-container {
+        flex-direction: column;
+    }
+
+    .not-found-container .helpfull-links .title label {
+        font-size: 45px;
+        line-height: 50px;
+    }
+
+    .not-found-container .helpfull-links {
+        width: 100%;
+        padding: 60px 40px;
+        margin: auto;
+    }
+
+    .not-found-container .helpfull-links .redirect-buttons {
+        display: none;
+    }
+
+    .not-found-container .helpfull-links .description {
+        margin-bottom: unset;
+    }
+
+    .not-found-container .helpfull-links .mobile-not-found-image {
+        display: unset;
+        max-height: 300px;
+        /*margin-bottom: 40px;*/
+    }
+    /*
+        .not-found-container .helpfull-links .component-items .item .link-to-component {
+            font-size: 16px;
+            line-height: 19px;
+        }
+
+        .not-found-container .helpfull-links .component-items .item .short-description {
+            font-size: 14px;
+            line-height: 17px;
+        }*/
+
+    .not-found-container .not-found-image {
+        display: none;
+        width: 0;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .not-found-container .helpfull-links .title label {
+        font-size: 45px;
+        line-height: 50px;
+    }
+
+    .not-found-container .helpfull-links {
+        padding: 0 40px;
+    }
+}
+
+@media (min-width: 992px) {
+    .not-found-container .helpfull-links .mobile-not-found-image {
+        display: none;
+    }
+}

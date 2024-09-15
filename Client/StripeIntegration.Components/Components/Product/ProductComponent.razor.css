@@ -1,0 +1,205 @@
+.product-container {
+    background: #FDFDFD;
+    border-radius: 20px;
+    width: 301px;
+    height: 446px;
+    padding: 40px 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.product-container .background-block {
+    position: absolute;
+    top: -1px;
+    left: calc(50% - 57.5px);
+    width: 115px;
+    height: 18px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-left: 1px solid #5DB276;
+    border-right: 1px solid #5DB276;
+    border-bottom: 1px solid #5DB276;
+    background: #F6F6F6;
+}
+
+.product-container .background-block .current-subscription-block {
+    position: absolute;
+    top: -13px;
+    left: calc(50% - 52.5px);
+    width: 105px;
+    background: #F6F6F6;
+    border: 1px solid #5DB276;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    text-align: center;
+    color: #5DB276;
+    border-radius: 6px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-container .title {
+    text-align: center;
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #292D32;
+}
+
+.product-container .icon {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.product-container .price {
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 29px;
+    color: #292D32;
+}
+
+.product-container .application-count {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #292D32;
+    padding-top: 24px;
+    padding-bottom: 16px;
+}
+
+.product-container .separator {
+    width: 100%;
+    height: 1px;
+    background: #E8E8E8;
+    border-radius: 2px;
+    margin-bottom: 24px;
+}
+
+.product-container .description {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #515151;
+}
+
+.product-container .buy button {
+    background: #5DB276;
+    border-radius: 6px;
+    width: 258px;
+    height: 40px;
+    outline: none;
+    border: none;
+
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+
+.remove-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    box-shadow: 0 8px 16px rgba(179, 179, 179, 0.25);
+    border-radius: 20px;
+}
+
+.remove-container > .top {
+    width: 100%;
+    height: 62px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.remove-container > .top > .text {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #292D32;
+}
+
+.remove-container > .top > .close {
+    position: absolute;
+    top: calc(50% - 16px);
+    right: 10px;
+    cursor: pointer;
+}
+
+.remove-container > .middle {
+    padding: 0 10px;
+
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: rgba(19, 18, 18, 0.7);
+}
+
+.remove-container > .bottom {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #E8E8E8;
+}
+
+.remove-container > .bottom > .btn {
+    width: 132px;
+    height: 43px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    cursor: pointer;
+}
+
+.remove-container > .bottom > .btn.close {
+    background: #F1F7F3;
+    color: #5DB276;
+}
+
+.remove-container > .bottom > .btn.remove {
+    background: #F7F1F1;
+    color: #E74646;
+}

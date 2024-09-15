@@ -1,0 +1,86 @@
+@using StripeIntegration.Website.Pages.NotFound.NotFoundIllustration
+
+<div class="not-found-container">
+    <div class="helpfull-links">
+        <div class="title">
+            <label>Page not found</label>
+        </div>
+
+        <div class="description">
+            <label>
+                Sorry, the page you are looking for 
+                does not exist or has been moved. 
+                Here are some useful links.
+            </label>
+        </div>
+
+        <div class="redirect-buttons">
+            <button class="back-button" @onclick="GoBackAsync">Go back</button>
+            <button class="main-button" @onclick='() => { NavigationManager.NavigateTo(Constants.ClientRoutes.Dashboard); }'>Go to Main page</button>
+        </div>
+
+        <div class="mobile-not-found-image">
+            <NotFoundIllustrationComponent Width="auto" Height="300px"/>
+        </div>
+
+        <div class="component-items">
+            <div class="item">
+                <div class="link-to-component">
+                    <label>Calendar component</label>
+                    <img src="img/svg/not-found/arrow.svg"/>
+                </div>
+                <div class="short-description">
+                    <label>
+                        Sorry, the page you are looking 
+                        for does not exist...
+                    </label>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="link-to-component">
+                    <label>Scheduler component</label>
+                    <img src="img/svg/not-found/arrow.svg"/>
+                </div>
+                <div class=" short-description">
+                    <label>
+                        Sorry, the page you are looking 
+                        for does not exist...
+                    </label>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="link-to-component">
+                    <label>Table component</label>
+                    <img src="img/svg/not-found/arrow.svg"/>
+                </div>
+                <div class="short-description">
+                    <label>
+                        Sorry, the page you are looking 
+                        for does not exist...
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="not-found-image">
+        <NotFoundIllustrationComponent Width="auto"/>
+    </div>
+</div>
+
+<style>
+    @@media (min-width: 150px) and (max-width: 767.9px){
+        .empty-layout-container{
+            align-items: unset !important;
+        }
+    }
+
+    @@media (min-width: 768px) and (max-width: 991.98px){
+        .empty-layout-container {
+            align-items: unset !important;
+        }
+    }
+
+</style>

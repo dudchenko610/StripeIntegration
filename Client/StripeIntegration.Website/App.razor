@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using StripeIntegration.Website.Layout.Main
+@using StripeIntegration.Website.Pages.NotFound
+
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <AppRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
+        </Found>
+        <NotFound>
+            <LayoutView Layout="@typeof(EmptyLayout)">
+                <NotFoundPage/>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>

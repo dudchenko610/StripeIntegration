@@ -1,0 +1,60 @@
+@attribute [Route(Constants.ClientRoutes.ConfirmEmail)]
+@layout EmptyLayout
+
+<div class="confirm-account-container">
+    <div class="confirm-wrapper">
+        <div class="confirm-icon" style="@(_successVerified ? "background: #5DB276;" : "background: #d02626;")">
+            <div class="icon">
+                @if (_successVerified)
+                {
+                    <img src="img/svg/payment/success.svg" />
+                }
+                else
+                {
+                    <img src="img/svg/payment/error.svg" />
+                }
+            </div>
+        </div>
+        <div class="confirm-info">
+            <div class="confirm-title">
+                @if (_successVerified)
+                {
+                    <label>Verified!</label>
+                }
+                else
+                {
+                    <label>Not confirmed!</label>
+                }
+            </div>
+            <div class="confirm-description">
+                @if (_successVerified)
+                {
+                    <label>
+                        You have successfully verified your account!
+                    </label>
+                }
+                else
+                {
+                    <label>
+                        Your account has not been verified!
+                    </label>
+                }
+            </div>
+            <div class="to-home-button">
+                <button class="btn1" 
+                        style="@(_successVerified ? "background: #5DB276; border: #5DB276;" : "background: #d02626; border: #d02626;")" 
+                        @onclick="() => NavigationManager.NavigateTo(Constants.ClientRoutes.Dashboard)">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .body-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+</style>

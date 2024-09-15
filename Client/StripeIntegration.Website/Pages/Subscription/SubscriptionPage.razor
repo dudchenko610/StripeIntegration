@@ -1,0 +1,87 @@
+@using StripeIntegration.Components.Components.Product
+
+@attribute [Route(Constants.ClientRoutes.Subscriptions)]
+
+<div class="subscription-container">
+    <div class="title">Subscriptions</div>
+    <div class="description">Below is information about all subscriptions.</div>
+
+    @if (_currentSubscription is not null && !_isLoading)
+    {
+        <div class="subscription-info">
+            <div class="two-box">
+                <div class="correct-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#5DB276" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#5DB276" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="describe">
+                    <div class="describe-title">Your subscription</div>
+                    <div class="desc-description">
+                        Your subscription <b>@_currentSubscription.ProductName</b> is active.
+                        Subscription expires on @_currentSubscription.CurrentPeriodEnd.ToString("dd.MM.yyyy").
+                    </div>
+                </div>
+            </div>
+            <div class="more-info">
+                <div class="info-title">Information about your subscription</div>
+                <div class="info-description">
+                    <div>
+                        <div class="descr-item">
+                            <label class="prop-name">Name</label>
+                            <label>@_currentSubscription.ProductName</label>
+                        </div>
+                        <div class="descr-item">
+                            <label class="prop-name">Price</label>
+                            <label>@_currentSubscription.Price @_currentSubscription.Currency</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="descr-item">
+                            <label class="prop-name">Created</label>
+                            <label>
+                                @_currentSubscription.Created.ToString("dd.MM.yyyy")
+                            </label>
+                        </div>
+                        <div class="descr-item">
+                            <label class="prop-name">
+                                App count
+                            </label>
+
+                            <label>0</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (!_isLoading)
+    {
+        <div class="products">
+            @foreach (var item in _products)
+            {
+                <ProductComponent @key="item"
+                                  Product="@item"
+                                  ButtonLoader="@_buttonLoader"
+                                  OnButtonLoaderChanged="OnButtonLoaderChanged"
+                                  OnUpdate="UpdateAsync"
+                                  CurrentSubscription="@_currentSubscription"/>
+            }
+        </div>
+    }
+
+    @if (_isLoading)
+    {
+        <div class="subscription-info-loader"></div>
+        
+        <div class="products">
+            @for (var i = 0; i < 4; i++)
+            {
+                <div class="product-loader"></div>
+            }
+        </div>
+    }
+
+</div>

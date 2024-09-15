@@ -1,0 +1,33 @@
+@attribute [Route($"{Constants.ClientRoutes.PaymentError}/{{SessionId}}")]
+
+<div class="error-paid-container">
+    <div class="error-wrapper">
+        <div class="error-icon">
+            <div class="icon">
+                <img src="img/svg/payment/error.svg" />
+            </div>
+        </div>
+        <div class="error-info">
+            <div class="error-title">Payment is not successful</div>
+            <div class="error-description">Payment was not successful, please check the correctness of the entered data</div>
+            <div class="to-home-button">
+                <button class="btn1" @onclick="() => NavigationManager.NavigateTo(Constants.ClientRoutes.Dashboard)">Go to home</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .body-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .error-paid-container .error-info .to-home-button .btn1{
+        background: #d02626;
+        border: 1px solid #d02626;
+    }
+</style>

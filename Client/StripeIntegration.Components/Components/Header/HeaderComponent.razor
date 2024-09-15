@@ -1,0 +1,49 @@
+@using Microsoft.AspNetCore.Components.Authorization
+@using StripeIntegration.Shared.Constants
+
+<div class="header-container">
+    <div class="left-side">
+        <div class="burger-button" @onclick="() => { OnBurgerClicked.InvokeAsync(); }"></div>
+    </div>
+    
+    <div class="right-side">
+        <AuthorizeView>
+            <Authorized>
+                <div class="action-icons">
+                    <div class="profile-icon" @onclick="OnProfileClickedAsync"></div>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="auth-buttons">
+                    <div class="sign-up-button" @onclick="() => { NavigationManager.NavigateTo(Constants.ClientRoutes.SignUp); }">
+                        <div class="icon"></div>
+                        <label>Sign Up</label>
+                    </div>
+                    <div class="sign-in-button" @onclick="() => { NavigationManager.NavigateTo(Constants.ClientRoutes.SignIn); }">
+                        <div class="icon"></div>
+                        <label>Sign In</label>
+                    </div>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+    </div>
+</div>
+
+<BCHModal @bind-Show="_showProfileOptions"
+          ShowOverlay="false"
+          Width="115px"
+          Height="79px"
+          X="@($"{_profileOptionsPos.X.ToString(_nF)}px")"
+          Y="@($"{_profileOptionsPos.Y.ToString(_nF)}px")">
+    <div id="@_profileOptionsId" class="profile-options">
+        <div class="line profile" @onclick="OnProfileClicked">
+            <div class="icon"></div>
+            <div class="text">Profile</div>
+        </div>
+        <div class="separator"></div>
+        <div class="line logout" @onclick="OnLogoutClickedAsync">
+            <div class="icon"></div>
+            <div class="text">Log out</div>
+        </div>
+    </div>
+</BCHModal>

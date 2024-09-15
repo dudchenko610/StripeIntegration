@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{DBC6FB35-5EB3-4057-A28A-AB55BB5A6DA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{CB3A8810-9E19-4168-B5EA-5B45923158F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{C70A5A7D-A3CF-4632-8EBC-86A3392433C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeIntegration.API", "Api\StripeIntegration.API\StripeIntegration.API.csproj", "{E927AD63-1C9D-4F82-9688-310372505245}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeIntegration.BLL", "Api\StripeIntegration.BLL\StripeIntegration.BLL.csproj", "{401523FC-A887-44A6-B9B7-79150C5E8E8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeIntegration.DAL", "Data\StripeIntegration.DAL\StripeIntegration.DAL.csproj", "{38DFCA86-DB23-4564-BBB9-DBC6A4863D9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeIntegration.Entities", "Data\StripeIntegration.Entities\StripeIntegration.Entities.csproj", "{A194CF97-7B77-4502-A1D5-8161AF9E4208}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeIntegration.Website", "Client\StripeIntegration.Website\StripeIntegration.Website.csproj", "{0CC02C69-EA25-4639-9AAF-1A091107815C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeIntegration.Services", "Client\StripeIntegration.Services\StripeIntegration.Services.csproj", "{846F7F89-1786-4830-8C2A-7982864575F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeIntegration.Components", "Client\StripeIntegration.Components\StripeIntegration.Components.csproj", "{EA59DFDB-2C81-46E9-91C2-9DD0987C9E62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeIntegration.Shared", "StripeIntegration.Shared\StripeIntegration.Shared.csproj", "{E555E0E5-E3B6-43D5-949F-5232BFD62E05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeIntegration.ViewModels", "StripeIntegration.ViewModels\StripeIntegration.ViewModels.csproj", "{ECFFE421-395F-4270-85CA-83CF20824314}"
+EndProject
+
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E927AD63-1C9D-4F82-9688-310372505245} = {DBC6FB35-5EB3-4057-A28A-AB55BB5A6DA5}
+		{401523FC-A887-44A6-B9B7-79150C5E8E8A} = {DBC6FB35-5EB3-4057-A28A-AB55BB5A6DA5}
+		{38DFCA86-DB23-4564-BBB9-DBC6A4863D9A} = {C70A5A7D-A3CF-4632-8EBC-86A3392433C1}
+		{A194CF97-7B77-4502-A1D5-8161AF9E4208} = {C70A5A7D-A3CF-4632-8EBC-86A3392433C1}
+		{0CC02C69-EA25-4639-9AAF-1A091107815C} = {CB3A8810-9E19-4168-B5EA-5B45923158F1}
+		{846F7F89-1786-4830-8C2A-7982864575F3} = {CB3A8810-9E19-4168-B5EA-5B45923158F1}
+		{EA59DFDB-2C81-46E9-91C2-9DD0987C9E62} = {CB3A8810-9E19-4168-B5EA-5B45923158F1}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E927AD63-1C9D-4F82-9688-310372505245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E927AD63-1C9D-4F82-9688-310372505245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E927AD63-1C9D-4F82-9688-310372505245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E927AD63-1C9D-4F82-9688-310372505245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{401523FC-A887-44A6-B9B7-79150C5E8E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{401523FC-A887-44A6-B9B7-79150C5E8E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{401523FC-A887-44A6-B9B7-79150C5E8E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{401523FC-A887-44A6-B9B7-79150C5E8E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38DFCA86-DB23-4564-BBB9-DBC6A4863D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38DFCA86-DB23-4564-BBB9-DBC6A4863D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38DFCA86-DB23-4564-BBB9-DBC6A4863D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38DFCA86-DB23-4564-BBB9-DBC6A4863D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A194CF97-7B77-4502-A1D5-8161AF9E4208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A194CF97-7B77-4502-A1D5-8161AF9E4208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A194CF97-7B77-4502-A1D5-8161AF9E4208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A194CF97-7B77-4502-A1D5-8161AF9E4208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC02C69-EA25-4639-9AAF-1A091107815C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC02C69-EA25-4639-9AAF-1A091107815C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC02C69-EA25-4639-9AAF-1A091107815C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC02C69-EA25-4639-9AAF-1A091107815C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{846F7F89-1786-4830-8C2A-7982864575F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{846F7F89-1786-4830-8C2A-7982864575F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{846F7F89-1786-4830-8C2A-7982864575F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{846F7F89-1786-4830-8C2A-7982864575F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA59DFDB-2C81-46E9-91C2-9DD0987C9E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA59DFDB-2C81-46E9-91C2-9DD0987C9E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA59DFDB-2C81-46E9-91C2-9DD0987C9E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA59DFDB-2C81-46E9-91C2-9DD0987C9E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E555E0E5-E3B6-43D5-949F-5232BFD62E05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E555E0E5-E3B6-43D5-949F-5232BFD62E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E555E0E5-E3B6-43D5-949F-5232BFD62E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E555E0E5-E3B6-43D5-949F-5232BFD62E05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECFFE421-395F-4270-85CA-83CF20824314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECFFE421-395F-4270-85CA-83CF20824314}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECFFE421-395F-4270-85CA-83CF20824314}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECFFE421-395F-4270-85CA-83CF20824314}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

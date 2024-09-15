@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="13.0.1" />
+        <PackageReference Include="BlazorComponentHeap.Components" Version="2.0.131" />
+        <PackageReference Include="MailKit" Version="4.7.1.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
+        <PackageReference Include="Stripe.net" Version="40.2.0" />
+        <PackageReference Include="Octokit" Version="8.0.0" />
+        <PackageReference Include="AspNet.OAuth.Providers" Version="1.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Data\StripeIntegration.DAL\StripeIntegration.DAL.csproj" />
+      <ProjectReference Include="..\..\StripeIntegration.ViewModels\StripeIntegration.ViewModels.csproj" />
+    </ItemGroup>
+
+</Project>

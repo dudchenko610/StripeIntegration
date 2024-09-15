@@ -1,0 +1,94 @@
+.remove-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: #FFFFFF;
+    box-shadow: 0 8px 16px rgba(179, 179, 179, 0.25);
+    border-radius: 20px;
+}
+
+.remove-container > .top {
+    width: 100%;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #E8E8E877;
+}
+
+.remove-container > .top > .text {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #292D32;
+}
+
+.remove-container > .top > .close {
+    right: 10px;
+    cursor: pointer;
+}
+
+.remove-container > .middle.scroll {
+    max-height: 157px;
+    min-height: 66px;
+
+    overflow: scroll;
+    padding: 10px 20px;
+
+    display: grid;
+    place-items: center;
+}
+
+.remove-container > .middle.scroll > .scroller {
+    width: 100%;
+
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: rgba(19, 18, 18, 0.7);
+}
+
+.remove-container > .bottom {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding-top: 8px;
+
+    border-top: 1px solid #E8E8E877;
+}
+
+.remove-container > .bottom > .btn {
+    width: 132px;
+    height: 43px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    cursor: pointer;
+}
+
+.remove-container > .bottom > .btn.close {
+    background: #F1F7F3;
+    color: #5DB276;
+}
+
+.remove-container > .bottom > .btn.remove {
+    background: #F7F1F1;
+    color: #E74646;
+}

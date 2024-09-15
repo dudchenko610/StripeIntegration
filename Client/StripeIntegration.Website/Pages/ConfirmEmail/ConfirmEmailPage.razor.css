@@ -1,0 +1,65 @@
+.confirm-account-container {
+    background-color: unset;
+    border: unset;
+    width: 100%;
+}
+
+.confirm-account-container .confirm-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.confirm-account-container .confirm-wrapper .confirm-icon {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #5DB276;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.confirm-account-container .confirm-wrapper .confirm-icon .icon {
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-account-container .confirm-wrapper .confirm-info {
+    background: #ffffff;
+    padding: 24px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.confirm-account-container .confirm-wrapper .confirm-info .confirm-title {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.3pc;
+    font-weight: bold;
+    text-align: center;
+}
+
+.confirm-account-container .confirm-wrapper .confirm-info .confirm-description {
+    font-family: "DM Sans", sans-serif;;
+    font-size: 1.1pc;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.confirm-account-container .confirm-wrapper .confirm-info .to-home-button {
+    text-align: center;
+    margin-top: 16px;
+}
+
+@media (max-width: 577px) {
+    .confirm-account-container .confirm-wrapper {
+        width: 70%;
+    }
+}
