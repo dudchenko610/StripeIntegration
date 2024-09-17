@@ -8,7 +8,6 @@
 
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="13.0.1" />
-        <PackageReference Include="BlazorComponentHeap.Components" Version="2.0.131" />
         <PackageReference Include="MailKit" Version="4.7.1.1" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
         <PackageReference Include="Stripe.net" Version="40.2.0" />

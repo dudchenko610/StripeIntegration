@@ -10,8 +10,4 @@
       <ProjectReference Include="..\StripeIntegration.Shared\StripeIntegration.Shared.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="BlazorComponentHeap.Components" Version="2.0.131" />
-    </ItemGroup>
-
 </Project>

@@ -16,7 +16,7 @@ public static class StartupExtensions
         var sqlConnectionString = configuration.GetConnectionString(Constants.AppSettings.SqlServerConnection);
         
         service.AddDbContext<DatabaseContext>(options =>
-            options.UseNpgsql(sqlConnectionString, x => x.MigrationsAssembly("BCH.DataAccessLayer")));
+            options.UseNpgsql(sqlConnectionString, x => x.MigrationsAssembly("StripeIntegration.DAL")));
 
         service.AddIdentity<User, IdentityRole<Guid>>(opts =>
             {
@@ -27,7 +27,7 @@ public static class StartupExtensions
                 opts.Password.RequireDigit = true;                   // Require at least one digit
 
                 opts.User.RequireUniqueEmail = true;
-                opts.User.AllowedUserNameCharacters = null;
+                opts.User.AllowedUserNameCharacters = null!;
             })
             .AddEntityFrameworkStores<DatabaseContext>()
             .AddTokenProvider<DataProtectorTokenProvider<User>>(TokenOptions.DefaultProvider);
