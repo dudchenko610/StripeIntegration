@@ -37,11 +37,11 @@ steps:
 #      command: 'custom'
 #      arguments: 'source Remove -Name nuget.org'
 #
-#  - task: NuGetCommand@2
-#    displayName: 'Add BlazorComponentHeap NuGet Source'
-#    inputs:
-#      command: 'custom'
-#      arguments: 'source Add -Name BlazorComponentHeap -Source $(bchSource) -UserName $(System.AccessToken) -Password $(System.AccessToken)'
+  - task: NuGetCommand@2
+    displayName: 'Add BlazorComponentHeap NuGet Source'
+    inputs:
+      command: 'custom'
+      arguments: 'source Add -Name BlazorComponentHeap -Source $(bchSource) -UserName $(System.AccessToken) -Password $(System.AccessToken)'
 
 #  - task: NuGetCommand@2
 #    displayName: 'Add nuget.org Source'
