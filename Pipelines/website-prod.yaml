@@ -31,7 +31,7 @@ steps:
     displayName: 'Add BlazorComponentHeap NuGet Source'
     inputs:
       command: 'custom'
-      arguments: 'source Add -Name AzureArtifacts -Source $(bchSource) -UserName $(System.AccessToken) -Password $(System.AccessToken)'
+      arguments: 'source Add -Name BlazorComponentHeap -Source $(bchSource) -UserName $(System.AccessToken) -Password $(System.AccessToken)'
 
   - task: NuGetAuthenticate@1
 
