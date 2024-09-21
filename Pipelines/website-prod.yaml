@@ -13,7 +13,6 @@ variables:
     Client/StripeIntegration.Website/StripeIntegration.Website.csproj
 
 steps:
-
   - task: UseDotNet@2
     displayName: 'Install .NET Core SDK'
     inputs:
@@ -59,7 +58,7 @@ steps:
     displayName: 'Deploy to Droplet'
     inputs:
       sshEndpoint: $(connectionToDroplet)
-      sourceFolder: '$(build.ArtifactStagingDirectory)'
+      sourceFolder: '$(build.ArtifactStagingDirectory)/wwwroot'
       contents: '**'
       targetFolder: '/var/www/$(appPath)'
       cleanTargetFolder: true
