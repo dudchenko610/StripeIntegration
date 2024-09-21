@@ -21,7 +21,7 @@ steps:
       version: '8.0.x'
       includePreviewVersions: true
 
-  - task: NuGetAuthenticate@0
+  - task: NuGetAuthenticate@1
 
   - task: DotNetCoreCLI@2
     displayName: 'dotnet restore'
