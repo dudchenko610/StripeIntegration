@@ -66,7 +66,7 @@ public class UserService : IUserService
         var stripeProducts = await _stripeService.GetProductsAsync();
 
         var products = _mapper.Map<List<Product>, List<ProductModel>>(stripeProducts
-            .Where(x => x.Metadata[Shared.Constants.Constants.Stripe.AppTypeKey] == "StripeIntegrationApp")
+            .Where(x => x.Metadata.TryGetValue(Shared.Constants.Constants.Stripe.AppTypeKey, out var appType) && appType == "StripeIntegrationApp")
             .ToList()
         );
 

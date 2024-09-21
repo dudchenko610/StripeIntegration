@@ -32,7 +32,6 @@ public static class StartupExtensions
         service.AddScoped<Stripe.CustomerService>();
         service.AddScoped<Stripe.SubscriptionService>();
         service.AddScoped<Stripe.PriceService>();
-        
         #endregion
         
         #region Provider

@@ -1,0 +1,74 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+variables:
+  buildConfiguration: 'Release'
+  projects: |
+    Api/StripeIntegration.API/StripeIntegration.API.csproj
+    Api/StripeIntegration.BLL/StripeIntegration.BLL.csproj
+    Data/StripeIntegration.DAL/StripeIntegration.DAL.csproj
+    Data/StripeIntegration.Entities/StripeIntegration.Entities.csproj
+    StripeIntegration.ViewModels/StripeIntegration.ViewModels.csproj
+    StripeIntegration.Shared/StripeIntegration.Shared.csproj
+
+steps:
+  - task: UseDotNet@2
+    displayName: 'Install .NET Core SDK'
+    inputs:
+      packageType: 'sdk'
+      version: '8.0.x'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet restore'
+    inputs:
+      command: 'restore'
+      projects: $(projects)
+
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet build'
+    inputs:
+      command: 'build'
+      arguments: --configuration $(buildConfiguration)
+      projects: $(projects)
+
+  - task: DotNetCoreCLI@2
+    displayName: Publish
+    inputs:
+      command: 'publish'
+      publishWebProjects: false
+      projects: $(projects)
+      arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+      zipAfterPublish: false
+
+  - script: |
+      find $(build.ArtifactStagingDirectory) -type f
+    displayName: 'Print build.ArtifactStagingDirectory'
+
+  - task: SSH@0
+    displayName: 'Stop StripeIntegration on Droplet'
+    inputs:
+      sshEndpoint: $(connectionToDroplet)
+      runOptions: 'commands'
+      commands: |
+        sudo systemctl status $(appServiceName) || true
+        sudo systemctl stop $(appServiceName) || true
+
+  - task: CopyFilesOverSSH@0
+    displayName: 'Deploy to Droplet'
+    inputs:
+      sshEndpoint: $(connectionToDroplet)
+      sourceFolder: '$(build.ArtifactStagingDirectory)'
+      contents: '**'
+      targetFolder: '/var/www/$(appPath)'
+      cleanTargetFolder: true
+
+  - task: SSH@0
+    displayName: 'Start StripeIntegration on Droplet'
+    inputs:
+      sshEndpoint: $(connectionToDroplet)
+      runOptions: 'commands'
+      commands: |
+        sudo systemctl start $(appServiceName)
+        sudo systemctl status $(appServiceName) || true

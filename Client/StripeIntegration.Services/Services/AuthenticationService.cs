@@ -58,7 +58,7 @@ public class AuthenticationService : IAuthenticationService
         var response = await _httpService.PostAsync<TokenModel, SignUpModel>("api/account/sign-up", model);
 
         if (response.Exception is null && 
-            !string.IsNullOrWhiteSpace(response.Result.AccessToken) && 
+            !string.IsNullOrWhiteSpace(response.Result?.AccessToken) && 
             !string.IsNullOrWhiteSpace(response.Result.RefreshToken))
         {
             await _localStorage.SetItemAsync(Constants.Auth.AccessToken, response.Result.AccessToken);

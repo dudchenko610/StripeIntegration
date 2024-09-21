@@ -37,7 +37,7 @@ public partial class SignUpPage
     {
         if (_signUpLoading) return;
         _signUpLoading = true;
-
+        
         if (!EmailHelper.IsValidEmail(_signUpRequestModel.Email!))
         {
             _serverException = new ServerException
@@ -45,12 +45,12 @@ public partial class SignUpPage
                 ErrorMessages = ["Incorrect email!"],
                 ServerErrorType = ServerErrorType.IncorrectEmail
             };
-
+        
             _signUpLoading = false;
             StateHasChanged();
             return;
         }
-
+        
         if (_signUpRequestModel.Password != _repeatedPassword)
         {
             _signUpRequestModel.Password = "";
@@ -60,22 +60,23 @@ public partial class SignUpPage
                 ErrorMessages = new List<string> { "Passwords do not match!" },
                 ServerErrorType = ServerErrorType.PasswordsDoNotMatch
             };
-
+        
+            _signUpLoading = false;
             StateHasChanged();
             return;
         }
-
+        
         var result = await AuthenticationService.SignUpAsync(_signUpRequestModel);
-
+        
         _signUpLoading = false;
-
+        
         if (result.Result is not null)
         {
             _showWindow = true;
             StateHasChanged();
             return;
         }
-
+        
         _serverException = result.Exception;
         StateHasChanged();
     }

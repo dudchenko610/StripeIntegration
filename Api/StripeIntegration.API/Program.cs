@@ -34,7 +34,7 @@ services.AddSocialAuthentication()
     {
         x.ClientId = configuration[$"{Constants.AppSettings.SocialAuthConfiguration}:Google:ClientId"];
         x.ClientSecret = configuration[$"{Constants.AppSettings.SocialAuthConfiguration}:Google:ClientSecret"];
-    });
+    }).Build();
 
 StripeIntegration.BLL.StartupExtensions.BusinessLogicInitializer(services, configuration, true);
 
@@ -68,8 +68,7 @@ app.UseRouting();
 
 app.UseCors(policyBuilder =>
 {
-    // TODO: add to config
-    policyBuilder.WithOrigins(configuration.GetSection(Constants.AppSettings.CorsConfiguration).Get<string[]>())
+    policyBuilder.WithOrigins(configuration.GetSection(Constants.AppSettings.CorsConfiguration).Get<string[]>() ?? new []{ ""})
         .AllowAnyMethod()
         .AllowAnyHeader()
         .AllowCredentials();

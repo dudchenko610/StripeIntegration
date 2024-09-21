@@ -25,8 +25,7 @@ public class ProductProfile : Profile
                 dest => dest.Price,
                 opt => opt.MapFrom(src => src.DefaultPrice.UnitAmountDecimal!.Value / 100m)
             ).ForMember(
-                dest => dest.Currency,
-                opt => opt.MapFrom(src => src.DefaultPrice.Currency)
-            );
+                dest => dest.ImgName,
+                opt => opt.MapFrom(src => src.Metadata[Shared.Constants.Constants.Stripe.ImgNameKey]));
     }
 }

@@ -56,22 +56,22 @@ public partial class SignInPage
 
     private async Task OnSocialClickedAsync(string provider)
     {
-        if(!string.IsNullOrEmpty(_signInSocialLoading) || _signInLoading) return;
-        
-        _signInSocialLoading = provider;
-        StateHasChanged();
-        
-        var url = await AuthenticationService.GetSocialUrlAsync(provider);
-
-        _signInSocialLoading = string.Empty;
-        
-        if (!string.IsNullOrWhiteSpace(url))
-        {
-            NavigationManager.NavigateTo(url);
-            return;
-        }
-        
-        StateHasChanged();
+        // if(!string.IsNullOrEmpty(_signInSocialLoading) || _signInLoading) return;
+        //
+        // _signInSocialLoading = provider;
+        // StateHasChanged();
+        //
+        // var url = await AuthenticationService.GetSocialUrlAsync(provider);
+        //
+        // _signInSocialLoading = string.Empty;
+        //
+        // if (!string.IsNullOrWhiteSpace(url))
+        // {
+        //     NavigationManager.NavigateTo(url);
+        //     return;
+        // }
+        //
+        // StateHasChanged();
     }
 
     private void OnKeyDown()

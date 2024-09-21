@@ -1,0 +1,59 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+variables:
+  buildConfiguration: 'Release'
+  projects: |
+    Client/StripeIntegration.Website/StripeIntegration.Website.csproj
+    Client/StripeIntegration.Components/StripeIntegration.Components.csproj
+    Client/StripeIntegration.Services/StripeIntegration.Services.csproj
+    StripeIntegration.ViewModels/StripeIntegration.ViewModels.csproj
+    StripeIntegration.Shared/StripeIntegration.Shared.csproj
+    
+steps:
+
+  - task: UseDotNet@2
+    displayName: 'Install .NET Core SDK'
+    inputs:
+      packageType: 'sdk'
+      version: '8.0.x'
+      includePreviewVersions: true
+
+  - task: NuGetAuthenticate@0
+
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet restore'
+    inputs:
+      command: 'restore'
+      projects: $(projects)
+
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet build'
+    inputs:
+      command: 'build'
+      arguments: --configuration $(buildConfiguration)
+      projects: $(projects)
+
+  - task: DotNetCoreCLI@2
+    displayName: Publish
+    inputs:
+      command: 'publish'
+      publishWebProjects: false
+      projects: $(projects)
+      arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+      zipAfterPublish: false
+
+  - script: |
+      find $(build.ArtifactStagingDirectory) -type f
+    displayName: 'Print Build.ArtifactStagingDirectory'
+
+  - task: CopyFilesOverSSH@0
+    displayName: 'Deploy to Droplet'
+    inputs:
+      sshEndpoint: $(connectionToDroplet)
+      sourceFolder: '$(build.ArtifactStagingDirectory)'
+      contents: '**'
+      targetFolder: '/var/www/$(appPath)'
+      cleanTargetFolder: true

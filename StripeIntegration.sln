@@ -25,6 +25,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeIntegration.Shared", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeIntegration.ViewModels", "StripeIntegration.ViewModels\StripeIntegration.ViewModels.csproj", "{ECFFE421-395F-4270-85CA-83CF20824314}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pipelines", "Pipelines", "{404BE0F8-45EF-4A1B-B85F-8712FDB6D35B}"
+	ProjectSection(SolutionItems) = preProject
+		Pipelines\api-prod.yaml = Pipelines\api-prod.yaml
+		Pipelines\website-prod.yaml = Pipelines\website-prod.yaml
+	EndProjectSection
+EndProject
 
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
