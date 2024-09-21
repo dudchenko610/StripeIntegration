@@ -53,6 +53,10 @@ steps:
       find $(build.ArtifactStagingDirectory) -type f
     displayName: 'Print Build.ArtifactStagingDirectory'
 
+  - script: |
+      sed -i 's|href="/"|href="/stripe-example/"|g' $(build.ArtifactStagingDirectory)/wwwroot/index.html
+    displayName: Insert base to index.html for the sub route version
+
   - task: CopyFilesOverSSH@0
     displayName: 'Deploy to Droplet'
     inputs:
