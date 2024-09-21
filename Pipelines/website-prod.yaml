@@ -51,11 +51,11 @@ steps:
 
   - task: NuGetAuthenticate@1
 
-  - task: DotNetCoreCLI@2
-    displayName: 'dotnet restore'
-    inputs:
-      command: 'restore'
-      projects: $(projects)
+#  - task: DotNetCoreCLI@2
+#    displayName: 'dotnet restore'
+#    inputs:
+#      command: 'restore'
+#      projects: $(projects)
 
   - task: DotNetCoreCLI@2
     displayName: 'dotnet build'
