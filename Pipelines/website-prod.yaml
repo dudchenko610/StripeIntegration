@@ -21,17 +21,27 @@ steps:
       version: '8.0.x'
       includePreviewVersions: true
 
-  - task: NuGetCommand@2
-    displayName: 'Remove nuget.org Source'
-    inputs:
-      command: 'custom'
-      arguments: 'source Remove -Name nuget.org'
+  - script: |
+      echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>" > nuget.config
+      echo "<configuration>" >> nuget.config
+      echo "  <packageSources>" >> nuget.config
+      echo "    <add key=\"BlazorComponentHeap\" value=\"$(bchSource)\" />" >> nuget.config
+      echo "    <add key=\"nuget.org\" value=\"https://api.nuget.org/v3/index.json\" />" >> nuget.config
+      echo "  </packageSources>" >> nuget.config
+      echo "</configuration>" >> nuget.config
+    displayName: 'Create nuget.config file with Azure Artifacts first'
 
-  - task: NuGetCommand@2
-    displayName: 'Add BlazorComponentHeap NuGet Source'
-    inputs:
-      command: 'custom'
-      arguments: 'source Add -Name BlazorComponentHeap -Source $(bchSource) -UserName $(System.AccessToken) -Password $(System.AccessToken)'
+#  - task: NuGetCommand@2
+#    displayName: 'Remove nuget.org Source'
+#    inputs:
+#      command: 'custom'
+#      arguments: 'source Remove -Name nuget.org'
+#
+#  - task: NuGetCommand@2
+#    displayName: 'Add BlazorComponentHeap NuGet Source'
+#    inputs:
+#      command: 'custom'
+#      arguments: 'source Add -Name BlazorComponentHeap -Source $(bchSource) -UserName $(System.AccessToken) -Password $(System.AccessToken)'
 
 #  - task: NuGetCommand@2
 #    displayName: 'Add nuget.org Source'
