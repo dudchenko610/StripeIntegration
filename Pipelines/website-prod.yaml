@@ -65,3 +65,11 @@ steps:
       contents: '**'
       targetFolder: '/var/www/$(appPath)'
       cleanTargetFolder: true
+
+  - task: SSH@0
+    displayName: 'Copy appsettings'
+    inputs:
+      sshEndpoint: $(connectionToDroplet)
+      runOptions: 'commands'
+      commands: |
+        sudo cp -f $(appsettingsPaths)
