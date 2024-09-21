@@ -65,6 +65,14 @@ steps:
       cleanTargetFolder: true
 
   - task: SSH@0
+    displayName: 'Copy appsettings'
+    inputs:
+      sshEndpoint: $(connectionToDroplet)
+      runOptions: 'commands'
+      commands: |
+        sudo cp -f $(appsettingsPaths)
+
+  - task: SSH@0
     displayName: 'Start StripeIntegration on Droplet'
     inputs:
       sshEndpoint: $(connectionToDroplet)

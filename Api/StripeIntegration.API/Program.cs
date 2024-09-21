@@ -1,6 +1,7 @@
 using AspNet.OAuth.Providers.Extensions;
 using AspNetCoreRateLimit;
 using Stripe;
+using StripeIntegration.API.Middlewares;
 using StripeIntegration.Shared.Constants;
 using StripeIntegration.ViewModels.Options;
 
@@ -59,6 +60,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseIpRateLimiting();
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseStaticFiles();
 app.UseDefaultFiles();
 
