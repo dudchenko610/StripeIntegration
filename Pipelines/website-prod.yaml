@@ -58,7 +58,7 @@ steps:
     displayName: 'Deploy to Droplet'
     inputs:
       sshEndpoint: $(connectionToDroplet)
-      sourceFolder: '$(build.ArtifactStagingDirectory)/wwwroot'
+      sourceFolder: '$(build.ArtifactStagingDirectory)/StripeIntegration.Website/wwwroot'
       contents: '**'
       targetFolder: '/var/www/$(appPath)'
       cleanTargetFolder: true
