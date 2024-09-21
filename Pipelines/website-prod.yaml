@@ -22,18 +22,16 @@ steps:
       includePreviewVersions: true
 
   - task: NuGetCommand@2
-    displayName: 'Add nuget.org NuGet Source'
+    displayName: 'Add nuget.org Source'
     inputs:
-      command: custom
-      custom: 'nuget'
-      arguments: 'source add -n "nuget.org" -s "https://api.nuget.org/v3/index.json"'
+      command: 'custom'
+      arguments: 'source Add -Name nuget.org -Source https://api.nuget.org/v3/index.json'
 
   - task: NuGetCommand@2
     displayName: 'Add BlazorComponentHeap NuGet Source'
     inputs:
-      command: custom
-      custom: 'nuget'
-      arguments: 'source add -n "BlazorComponentHeap" -s "$(bchSource)" --store-password-in-clear-text --username $(System.AccessToken) --password $(System.AccessToken)'
+      command: 'custom'
+      arguments: 'source Add -Name AzureArtifacts -Source $(bchSource) -UserName $(System.AccessToken) -Password $(System.AccessToken)'
 
   - task: NuGetAuthenticate@1
 
