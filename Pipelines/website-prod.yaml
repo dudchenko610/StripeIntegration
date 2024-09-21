@@ -33,11 +33,11 @@ steps:
       command: 'custom'
       arguments: 'source Add -Name BlazorComponentHeap -Source $(bchSource) -UserName $(System.AccessToken) -Password $(System.AccessToken)'
 
-  - task: NuGetCommand@2
-    displayName: 'Add nuget.org Source'
-    inputs:
-      command: 'custom'
-      arguments: 'source Add -Name nuget.org -Source https://api.nuget.org/v3/index.json'
+#  - task: NuGetCommand@2
+#    displayName: 'Add nuget.org Source'
+#    inputs:
+#      command: 'custom'
+#      arguments: 'source Add -Name nuget.org -Source https://api.nuget.org/v3/index.json'
 
   - task: NuGetAuthenticate@1
 
