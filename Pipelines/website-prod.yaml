@@ -6,12 +6,12 @@ pool:
 variables:
   buildConfiguration: 'Release'
   projects: |
-    Client/StripeIntegration.Website/StripeIntegration.Website.csproj
-    Client/StripeIntegration.Components/StripeIntegration.Components.csproj
-    Client/StripeIntegration.Services/StripeIntegration.Services.csproj
-    StripeIntegration.ViewModels/StripeIntegration.ViewModels.csproj
     StripeIntegration.Shared/StripeIntegration.Shared.csproj
-    
+    StripeIntegration.ViewModels/StripeIntegration.ViewModels.csproj
+    Client/StripeIntegration.Services/StripeIntegration.Services.csproj
+    Client/StripeIntegration.Components/StripeIntegration.Components.csproj
+    Client/StripeIntegration.Website/StripeIntegration.Website.csproj
+
 steps:
 
   - task: UseDotNet@2
@@ -22,6 +22,12 @@ steps:
       includePreviewVersions: true
 
   - task: NuGetAuthenticate@0
+
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet restore'
+    inputs:
+      command: 'restore'
+      projects: $(projects)
 
   - task: DotNetCoreCLI@2
     displayName: 'dotnet build'
