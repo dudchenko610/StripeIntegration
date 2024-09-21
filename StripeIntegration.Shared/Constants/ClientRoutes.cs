@@ -7,6 +7,7 @@ public static partial class Constants
         public const string DashboardBase = "/";
         public const string Dashboard = "/stripe-example";
         public const string Components = "/stripe-example/components";
+        public const string SubscriptionsBase = "/subscriptions";
         public const string Subscriptions = "/stripe-example/subscriptions";
         public const string Help = "/stripe-example/help";
         public const string Documentation = "/stripe-example/documentation";
