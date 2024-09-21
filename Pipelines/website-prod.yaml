@@ -24,12 +24,6 @@ steps:
   - task: NuGetAuthenticate@0
 
   - task: DotNetCoreCLI@2
-    displayName: 'dotnet restore'
-    inputs:
-      command: 'restore'
-      projects: $(projects)
-
-  - task: DotNetCoreCLI@2
     displayName: 'dotnet build'
     inputs:
       command: 'build'
