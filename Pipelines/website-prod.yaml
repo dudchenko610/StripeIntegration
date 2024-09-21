@@ -21,11 +21,11 @@ steps:
       version: '8.0.x'
       includePreviewVersions: true
 
-  - task: NuGetCommand@2
-    displayName: 'Add nuget.org Source'
-    inputs:
-      command: 'custom'
-      arguments: 'source Add -Name nuget.org -Source https://api.nuget.org/v3/index.json'
+#  - task: NuGetCommand@2
+#    displayName: 'Add nuget.org Source'
+#    inputs:
+#      command: 'custom'
+#      arguments: 'source Add -Name nuget.org -Source https://api.nuget.org/v3/index.json'
 
   - task: NuGetCommand@2
     displayName: 'Add BlazorComponentHeap NuGet Source'
