@@ -32,6 +32,11 @@ public class ExceptionMiddleware
         }
         catch (Exception ex)
         {
+            Console.WriteLine("__________________ EXCEPTION __________________");
+            Console.WriteLine(ex.Message);
+            Console.WriteLine(ex.StackTrace);
+            Console.WriteLine("__________________ EXCEPTION __________________");
+            
             var result = JsonConvert.SerializeObject(new ServerException("Server error occurred, try later please"));
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int) HttpStatusCode.InternalServerError;

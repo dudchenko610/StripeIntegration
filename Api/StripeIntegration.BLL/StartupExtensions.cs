@@ -1,5 +1,6 @@
 using System.Text;
 using AutoMapper;
+using AutoMapper.Internal;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,6 +44,8 @@ public static class StartupExtensions
         
         var mapperConfig = new MapperConfiguration(config =>
         {
+            config.Internal().MethodMappingEnabled = false;
+            
             config.AddProfile(new UserProfile());
             config.AddProfile(new ProductProfile());
             config.AddProfile(new SubscriptionProfile());
