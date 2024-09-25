@@ -4,8 +4,8 @@ public static partial class Constants
 {
     public static class ClientRoutes
     {
-        public const string SubscriptionsBase = "/subscriptions";
-        public const string Subscriptions = "/stripe-example/subscriptions";
+        public const string SubscriptionsBase = "/";
+        public const string Subscriptions = "/stripe-example";
         
         public const string PrivacyPolicy = "/stripe-example/privacy-policy";
         public const string TermsOfUse = "/stripe-example/terms-of-use";
