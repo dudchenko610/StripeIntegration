@@ -289,7 +289,7 @@ public class AccountService : IAccountService
         string tokenCode = WebEncoders.Base64UrlEncode(tokenGenerateBytes);
 
         var callbackUrl = new StringBuilder();
-        callbackUrl.Append($"{_clientOptions.Value.Url}{_clientOptions.Value.UrlConfirmEmail}");
+        callbackUrl.Append($"{_clientOptions.Value.Url}/{_clientOptions.Value.UrlConfirmEmail}");
         callbackUrl.Append($"?email={email}&code={tokenCode}");
 
         return await _emailProvider.SendMailAsync(new MailDataModel
