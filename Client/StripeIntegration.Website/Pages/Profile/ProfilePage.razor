@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
                                 <div class="edit-icon">
-                                    <img src="/img/edit-button.svg"/>
+                                    <img src="_content/StripeIntegration.Components/img/edit-button.svg"/>
                                 </div>
                             }
                             else
@@ -147,7 +147,7 @@
                             }
                             else
                             {
-                                <label class="noselectable-text">@((MarkupString)string.Format("Your subscription was activated &lt;b&gt;on {{0}}&lt;/b&gt;. Subscription expires&lt;b&gt;on {{1}}&lt;/b&gt;. We will notify you before the expiration date.", _subscriptionModel.CurrentPeriodStart, _subscriptionModel.CurrentPeriodEnd))</label>
+                                <label class="noselectable-text">@((MarkupString)$"Your subscription was activated <b>on {_subscriptionModel.CurrentPeriodStart}</b>. Subscription expires <b>on {_subscriptionModel.CurrentPeriodEnd}</b>. We will notify you before the expiration date.")</label>
                             }
                         </div>
                         @if (_subscriptionModel is null)

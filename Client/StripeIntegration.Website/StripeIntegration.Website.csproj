@@ -16,14 +16,4 @@
       <ProjectReference Include="..\StripeIntegration.Components\StripeIntegration.Components.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="wwwroot\fonts\" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css.map" />
-      <_ContentIncludedByDefault Remove="Pages\Home\HomePage.razor" />
-    </ItemGroup>
-
 </Project>

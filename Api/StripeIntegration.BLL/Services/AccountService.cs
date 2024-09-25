@@ -244,7 +244,7 @@ public class AccountService : IAccountService
         
         if (!await SendMessageToEmailAsync(model.Email)) // TODO: cancel changes
         {
-            // await _userManager.DeleteAsync(user);
+            await _userManager.DeleteAsync(user);
             throw new ServerException("Problem with registering you in system, try later please!");
         }
         
