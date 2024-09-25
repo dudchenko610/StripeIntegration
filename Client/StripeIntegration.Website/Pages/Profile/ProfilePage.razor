@@ -1,5 +1,8 @@
 @using Microsoft.AspNetCore.Authorization
+
+@attribute [Route(Constants.ClientRoutes.ProfileBase)]
 @attribute [Route(Constants.ClientRoutes.Profile)]
+
 @attribute [Authorize]
 
 <div class="profile-container @(!_dataIsLoaded ? "loading" : "")">

@@ -1,3 +1,4 @@
+@attribute [Route($"{Constants.ClientRoutes.PaymentErrorBase}/{{SessionId}}")]
 @attribute [Route($"{Constants.ClientRoutes.PaymentError}/{{SessionId}}")]
 
 <div class="error-paid-container">
@@ -11,7 +12,7 @@
             <div class="error-title">Payment is not successful</div>
             <div class="error-description">Payment was not successful, please check the correctness of the entered data</div>
             <div class="to-home-button">
-                <button class="btn1" @onclick="() => NavigationManager.NavigateTo(Constants.ClientRoutes.Dashboard)">Go to home</button>
+                <button class="btn1" @onclick="() => NavigationManager.NavigateTo(Constants.ClientRoutes.Subscriptions)">Go to home</button>
             </div>
         </div>
     </div>

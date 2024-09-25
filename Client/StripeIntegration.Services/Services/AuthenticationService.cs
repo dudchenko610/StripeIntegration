@@ -90,7 +90,7 @@ public class AuthenticationService : IAuthenticationService
     {
         await _localStorage.SetItemAsync(Constants.Auth.AccessToken, "");
         ((AuthStateProvider)_authStateProvider).NotifyUserLogout();
-        _navigationManager.NavigateTo(Constants.ClientRoutes.Dashboard);
+        _navigationManager.NavigateTo(Constants.ClientRoutes.Subscriptions);
     }
     
     public async Task<string> GetSocialUrlAsync(string provider)

@@ -32,7 +32,7 @@ public class AppRouteView : RouteView
         {
             if (isAuthorized)
             {
-                NavManager.NavigateTo(Constants.ClientRoutes.Dashboard);
+                NavManager.NavigateTo(Constants.ClientRoutes.Subscriptions);
                 return;
             }
         }

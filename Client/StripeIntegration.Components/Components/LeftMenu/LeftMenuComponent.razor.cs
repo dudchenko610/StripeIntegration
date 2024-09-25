@@ -16,8 +16,6 @@ public partial class LeftMenuComponent : IDisposable
     [Inject] public required NavigationManager NavigationManager { get; set; }
     [Inject] public required IJSRuntime JsRuntime { get; set; }
 
-    private bool _showListComponents = false;
-    private List<MenuItemModel> _components = new();
     private bool _isMobile = false;
     private bool _isShown = false;
 
@@ -25,19 +23,6 @@ public partial class LeftMenuComponent : IDisposable
     {
         _isMobile = ((IJSInProcessRuntime)JsRuntime).Invoke<bool>("isMobileDevice");
         NavigationManager.LocationChanged += LocationChanged!;
-
-        _components.AddRange(new List<MenuItemModel>
-        {
-            new () { Name = "Table", Link = Constants.ClientRoutes.TableExample },
-            new () { Name = "Select", Link = Constants.ClientRoutes.SelectExample },
-            new () { Name = "Tabs", Link = Constants.ClientRoutes.TabsExample },
-            new () { Name = "Calendar", Link = Constants.ClientRoutes.CalendarExample },
-            new () { Name = "Cropper", Link = Constants.ClientRoutes.CropperExample },
-            new () { Name = "Modal", Link = Constants.ClientRoutes.ModalExample },
-            new () { Name = "Range", Link = Constants.ClientRoutes.RangeExample },
-        });
-
-        _components = _components.OrderBy(x => x.Name).ToList();
     }
     
     public void Dispose()
@@ -47,27 +32,8 @@ public partial class LeftMenuComponent : IDisposable
 
     private void OnRedirect(string link)
     {
-        switch (link)
-        {
-            case Constants.ClientRoutes.Components:
-            {
-                _showListComponents = !_showListComponents;
-
-                if (!_isShown)
-                {
-                    _isShown = true;
-                    _showListComponents = true;
-                }
-                
-                break;
-            }
-            default:
-            {
-                if (_isMobile) _isShown = false;
-                NavigationManager.NavigateTo(link);
-                break;
-            }
-        }
+        if (_isMobile) _isShown = false;
+        NavigationManager.NavigateTo(link);
     }
 
     private void OnComponentClicked(string link)

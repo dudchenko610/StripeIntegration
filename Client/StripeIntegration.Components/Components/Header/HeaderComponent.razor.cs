@@ -83,7 +83,7 @@ public partial class HeaderComponent : IAsyncDisposable
     private async Task OnLogoutClickedAsync()
     {
         await AuthenticationService.LogoutAsync();
-        NavigationManager.NavigateTo(Constants.ClientRoutes.Dashboard);
+        NavigationManager.NavigateTo(Constants.ClientRoutes.Subscriptions);
         
         _showProfileOptions = false;
         StateHasChanged();

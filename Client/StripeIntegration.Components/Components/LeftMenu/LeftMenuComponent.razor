@@ -2,11 +2,7 @@
 
 @{
     var relativePath = $"/{NavigationManager.ToBaseRelativePath(NavigationManager.Uri)}";
-    var dashboardActive = relativePath == Constants.ClientRoutes.Dashboard;
-    var componentsActive = relativePath.Contains(Constants.ClientRoutes.Components, StringComparison.OrdinalIgnoreCase);
     var subscriptionsActive = relativePath.Contains(Constants.ClientRoutes.Subscriptions, StringComparison.OrdinalIgnoreCase);
-    var documentationActive = relativePath.Contains(Constants.ClientRoutes.Documentation, StringComparison.OrdinalIgnoreCase);
-    var helpActive = relativePath.Contains(Constants.ClientRoutes.Help, StringComparison.OrdinalIgnoreCase);
 }
 
 <div class='left-menu-container @(_isShown ? "opened-menu" : "closed-menu")'>
@@ -24,48 +20,6 @@
 
         <div class="tabs noselectable-text">
             <ul>
-                <li class="tab-item dashboard @(dashboardActive ? "active-tab" : "")"
-                    @onclick="() => { OnRedirect(Constants.ClientRoutes.Dashboard); }">
-                    <div style='@(dashboardActive ? "" : "display: none;")'
-                         class='@(dashboardActive ? "active-check" : "")'>
-                    </div>
-                    <div class="tab-icon">
-                        <img src="_content/StripeIntegration.Components/img/left-menu/tab-icons/dashboard-icon.svg"/>
-                    </div>
-                    <div class="tab-name">
-                        <label class=" @(!_isShown ? "hide-text" : "show-text")">Dashboard</label>
-                    </div>
-                </li>
-                <li class="tab-item components @(componentsActive ? "active-tab" : "")"
-                    @onclick="() => { OnRedirect(Constants.ClientRoutes.Components); }">
-                    <div style='@(componentsActive ? "" : "display: none;")'
-                         class='@(componentsActive ? "active-check" : "")'>
-                    </div>
-                    <div class="tab-icon">
-                        <img src="_content/StripeIntegration.Components/img/left-menu/tab-icons/component-icon.svg"/>
-                    </div>
-                    <div class="tab-name">
-                        <label class=" @(!_isShown ? "hide-text" : "show-text")">Components</label>
-                    </div>
-
-                    <div class="open-items-button @(!_isShown ? "hide-icon" : "show-icon")">
-                        <svg style="@(_showListComponents ? "transform: rotate(180deg);" : "")"
-                             xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
-                            <path d="M2.72003 5.19751L7.0667 9.00084C7.58003 9.45001 8.42003 9.45001 8.93336 9.00084L13.28 5.19751" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </li>
-                <li style="@(_showListComponents && _isShown ? $"max-height: {_components.Count * 34}px;" : "max-height: 0;")"
-                    class="list-of-components @(_showListComponents && _isShown ? "show-list" : "hide-list")">
-                    <ul>
-                        @foreach (var comp in _components)
-                        {
-                            <li class="@(IsExampleRefActive(comp.Link) ? "selected" : "")" @onclick="() => { OnComponentClicked(comp.Link); }">
-                                @comp.Name
-                            </li>
-                        }
-                    </ul>
-                </li>
                 <li class="tab-item subscriptions @(subscriptionsActive ? "active-tab" : "")"
                     @onclick="() => { OnRedirect(Constants.ClientRoutes.Subscriptions); }">
                     <div style='@(subscriptionsActive ? "" : "display: none;")'
@@ -76,35 +30,6 @@
                     </div>
                     <div class="tab-name">
                         <label class=" @(!_isShown ? "hide-text" : "show-text")">Subscriptions</label>
-                    </div>
-                </li>
-            </ul>
-
-            <div class="dot-separator"></div>
-
-            <ul>
-                <li class="tab-item documentation @(documentationActive ? "active-tab" : "")"
-                    @onclick="() => { OnRedirect(Constants.ClientRoutes.Documentation); }">
-                    <div style='@(documentationActive ? "" : "display: none;")'
-                         class='@(documentationActive ? "active-check" : "")'>
-                    </div>
-                    <div class="tab-icon">
-                        <img src="_content/StripeIntegration.Components/img/left-menu/tab-icons/documentation-icon.svg" width="26" height="26"/>
-                    </div>
-                    <div class="tab-name">
-                        <label class=" @(!_isShown ? "hide-text" : "show-text")">Documentation</label>
-                    </div>
-                </li>
-                <li class="tab-item help @(helpActive ? "active-tab" : "")"
-                    @onclick="() => { OnRedirect(Constants.ClientRoutes.Help); }">
-                    <div style='@(helpActive ? "" : "display: none;")'
-                         class='@(helpActive ? "active-check" : "")'>
-                    </div>
-                    <div class="tab-icon">
-                        <img src="_content/StripeIntegration.Components/img/left-menu/tab-icons/help-icon.svg"/>
-                    </div>
-                    <div class="tab-name">
-                        <label class=" @(!_isShown ? "hide-text" : "show-text")">Help</label>
                     </div>
                 </li>
             </ul>

@@ -148,7 +148,7 @@ public class HttpService : IHttpService
 
                 await _localStorageService.SetItemAsync(Constants.Auth.AccessToken, "");
                 ((AuthStateProvider)_authStateProvider).NotifyUserLogout();
-                if (showAuthError) _navigationManager.NavigateTo(Constants.ClientRoutes.Dashboard);
+                if (showAuthError) _navigationManager.NavigateTo(Constants.ClientRoutes.Subscriptions);
                 
                 return (null!, ex1, false);
             }

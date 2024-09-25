@@ -1,4 +1,6 @@
+@attribute [Route(Constants.ClientRoutes.SignUpBase)]
 @attribute [Route(Constants.ClientRoutes.SignUp)]
+@attribute [Route($"{Constants.ClientRoutes.SignUpBase}/{{Email}}/social")]
 @attribute [Route($"{Constants.ClientRoutes.SignUp}/{{Email}}/social")]
 
 @layout EmptyLayout
@@ -12,7 +14,7 @@
     <div class="form-wrapper @((_serverException is not null) ? "error" : "")">
 
         <div class="logo">
-            <img @onclick="() => { NavigationManager.NavigateTo(Constants.ClientRoutes.Dashboard); }" class="noselectable-text" src="_content/StripeIntegration.Components/img/svg/full-logo.svg"/>
+            <img @onclick="() => { NavigationManager.NavigateTo(Constants.ClientRoutes.Subscriptions); }" class="noselectable-text" src="_content/StripeIntegration.Components/img/svg/full-logo.svg"/>
         </div>
 
         <div class="header noselectable-text">Welcome to the system!</div>

@@ -1,4 +1,6 @@
+@attribute [Route(Constants.ClientRoutes.ConfirmEmailBase)]
 @attribute [Route(Constants.ClientRoutes.ConfirmEmail)]
+
 @layout EmptyLayout
 
 <div class="confirm-account-container">
@@ -43,7 +45,7 @@
             <div class="to-home-button">
                 <button class="btn1" 
                         style="@(_successVerified ? "background: #5DB276; border: #5DB276;" : "background: #d02626; border: #d02626;")" 
-                        @onclick="() => NavigationManager.NavigateTo(Constants.ClientRoutes.Dashboard)">Ok</button>
+                        @onclick="() => NavigationManager.NavigateTo(Constants.ClientRoutes.Subscriptions)">Ok</button>
             </div>
         </div>
     </div>
